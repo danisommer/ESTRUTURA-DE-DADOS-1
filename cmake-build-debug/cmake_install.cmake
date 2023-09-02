@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/fabri/Downloads/Programação/ESTRUTURA-DADOS-1
+# Install script for directory: C:/Users/fabri/Downloads/Programação/ESTRUTURA-DE-DADOS
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/ESTRUTURA_DADOS_1")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/ESTRUTURA_DE_DADOS")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/fabri/Downloads/Programação/ESTRUTURA-DADOS-1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/fabri/Downloads/Programação/ESTRUTURA-DE-DADOS/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

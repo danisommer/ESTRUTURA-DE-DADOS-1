@@ -296,7 +296,7 @@ void ListaSequencial::ExportarLista(const string& nomeArquivo) {
     arquivo.close();
 }
 
-void ListaSequencial::LerArquivo(ifstream &arquivo) const {
+void ListaSequencial::LerArquivo(ifstream &arquivo) {
     string linha;
 
     //Retorna ao inicio do arquivo

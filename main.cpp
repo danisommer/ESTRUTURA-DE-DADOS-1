@@ -70,7 +70,7 @@ int main() {
             break;
         }
 
-        diretorio = "C:/Users/fabri/Downloads/Programa��o/ESTRUTURA-DADOS-1/" + nome;
+        diretorio = "C:/Users/fabri/Downloads/Programação/ESTRUTURA-DE-DADOS/" + nome;
         arquivo.open(diretorio);
 
         if (!arquivo.is_open()) {
@@ -251,7 +251,7 @@ int main() {
 
                 case 10:
                     inicio = clock();
-                    listaSeq.LerArquivo(arquivo);
+                    ListaSequencial::LerArquivo(arquivo);
                     fim = clock();
 
                     calculaTempoExec("ler o .txt", inicio, fim);

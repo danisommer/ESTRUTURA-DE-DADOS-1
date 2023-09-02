@@ -7,7 +7,7 @@ using namespace std;
 
 class ListaSequencial {
 private:
-    Dado* elementos;
+    Dado* elementos{};
     int capacidade;
 
 public:
@@ -19,6 +19,6 @@ public:
     void EncontrarElemento(string &RG);
     void ImprimirLista();
     void ExportarLista(const string& nomeArquivo);
-    void LerArquivo(ifstream &arquivo) const;
+    static void LerArquivo(ifstream &arquivo) ;
 
 };

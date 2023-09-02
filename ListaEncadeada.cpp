@@ -11,6 +11,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <utility>
 
 using namespace std;
 
@@ -57,8 +58,8 @@ void ListaEncadeada::InserirElemento(int pos, string nome, string rg) {
 
     // Cria um novo nodo com os dados fornecidos
     Nodo* novoNodo = new Nodo;
-    novoNodo->dado.nome = nome;
-    novoNodo->dado.rg = rg;
+    novoNodo->dado.nome = std::move(nome);
+    novoNodo->dado.rg = std::move(rg);
 
     if (pos == 0) {
         // Inserir no início da lista
