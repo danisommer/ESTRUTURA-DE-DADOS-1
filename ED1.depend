@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1693675365 source:c:\users\fabri\downloads\programacao\estrutura-de-dados\listasequencial.cpp
+	"ListaSequencial.h"
+	<iostream>
+	<string>
+	<fstream>
+	<sstream>
+
+1693675365 c:\users\fabri\downloads\programacao\estrutura-de-dados\listasequencial.h
+	<string>
+	"Dado.h"
+
+1693679937 c:\users\fabri\downloads\programacao\estrutura-de-dados\dado.h
+	<string>
+	<ctime>
+
+1693679833 source:c:\users\fabri\downloads\programacao\estrutura-de-dados\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<ctime>
+	<iomanip>
+	"ListaEncadeada.h"
+	"ListaSequencial.h"
+	"Dado.h"
+
+1693679637 c:\users\fabri\downloads\programacao\estrutura-de-dados\listaencadeada.h
+	<string>
+	"Dado.h"
+	<iostream>
+
+1693680534 source:c:\users\fabri\downloads\programacao\estrutura-de-dados\listaencadeada.cpp
+	"ListaEncadeada.h"
+	<iostream>
+	<string>
+	<fstream>
+	<sstream>
+	<utility>
+

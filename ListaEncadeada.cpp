@@ -168,7 +168,7 @@ void ListaEncadeada::EncontrarElemento(string &RG) {
 
     while (atual != nullptr) {
         if (atual->dado.rg == RG) {
-            cout << "O elemento " << RG << " se encontra na posicao  " << posicao << endl;
+            cout << "O elemento se encontra na posicao " << posicao << endl;
             encontrado = true;
             break; // Elemento encontrado, podemos sair do loop
         }
@@ -188,7 +188,7 @@ void ListaEncadeada::ImprimirLista() {
     cout << "\nLISTA ENCADEADA:\n" << endl;
 
     while (atual != nullptr) {
-        cout << posicao << ") Nome: " << atual->dado.nome << "| RG: " << atual->dado.rg << endl;
+        cout << posicao << ") Nome: " << atual->dado.nome << " | RG: " << atual->dado.rg << endl;
         atual = atual->proximo;
         posicao++;
     }

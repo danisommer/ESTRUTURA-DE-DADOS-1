@@ -8,7 +8,7 @@ using namespace std;
 
 struct Nodo {
     Dado dado;
-    Nodo* proximo;
+    Nodo* proximo{};
 };
 
 class ListaEncadeada {

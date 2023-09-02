@@ -13,12 +13,9 @@
 #include <iomanip>
 #include "ListaEncadeada.h"
 #include "ListaSequencial.h"
+#include "Dado.h"
 
 using namespace std;
-
-void pausarExecucao();
-void getOpcao(int &opcao);
-void calculaTempoExec(const string& tipoLista, clock_t inicio, clock_t fim);
 
 void pausarExecucao() {
     cout << "Pressione Enter para continuar...";
@@ -70,7 +67,7 @@ int main() {
             break;
         }
 
-        diretorio = "C:/Users/fabri/Downloads/Programação/ESTRUTURA-DE-DADOS/" + nome;
+        diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/" + nome;
         arquivo.open(diretorio);
 
         if (!arquivo.is_open()) {
