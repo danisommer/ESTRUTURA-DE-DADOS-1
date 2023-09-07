@@ -17,12 +17,14 @@
 
 using namespace std;
 
+// Função para pausar a execução e esperar pelo pressionamento de Enter
 void pausarExecucao() {
     cout << "Pressione Enter para continuar...";
     cin.get();
     cin.get(); // Aguarda um pressionamento de Enter
 }
 
+// Função para obter a opção do usuário
 void getOpcao(int &opcao) {
     cout << "\nDigite a opcao que deseja utilizar:\n"
          << "(1) Inserir dado no inicio da lista\n"
@@ -34,11 +36,12 @@ void getOpcao(int &opcao) {
          << "(7) Procurar um dado na lista\n"
          << "(8) Mostrar a lista completa\n"
          << "(9) Salvar a lista em um arquivo\n"
-         << "(10) Ler a lista de um arquivo\n"
-         << "(11) Escolher outro arquivo\n";
+         << "(10) Escolher outro arquivo\n"
+         << "(11) Sair\n";
     cin >> opcao;
 }
 
+// Função para calcular e exibir o tempo de execução
 void calculaTempoExec(const string& tipoLista, clock_t inicio, clock_t fim) {
     double tempoExec = double(fim - inicio) / CLOCKS_PER_SEC;
     cout << "Tempo total de execucao para " << tipoLista <<": "<<  fixed << tempoExec << setprecision(5);
@@ -46,7 +49,7 @@ void calculaTempoExec(const string& tipoLista, clock_t inicio, clock_t fim) {
 }
 
 int main() {
-    clock_t inicioSeq, fimSeq, inicioEnc, fimEnc, inicio, fim;
+    clock_t inicioSeq, fimSeq, inicioEnc, fimEnc;
     string nome, nomeEscolhido, RGEscolhido, diretorio, linha, RG;
     ListaSequencial listaSeq;
     ListaEncadeada listaEnc;
@@ -59,34 +62,33 @@ int main() {
             arquivo.close(); // Fechar o arquivo atual, se estiver aberto
         }
 
-        cout << "Digite o nome do arquivo desejado (ou digite 'sair' para encerrar): " << endl;
+        cout << "Digite o nome do arquivo desejado: " << endl;
         cin >> nome;
 
-        if (nome == "sair") {
-            cout << "Encerrando o programa." << endl;
-            break;
-        }
-
+        // Montar o caminho completo do arquivo
         diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/" + nome;
         arquivo.open(diretorio);
 
         if (!arquivo.is_open()) {
             cout << "Erro ao abrir o arquivo." << endl;
-            continue; // Continuar para a pr�xima itera��o do loop
+            continue; // Continuar para a próxima iteração do loop
         }
 
         inicioSeq = clock();
-        listaSeq.PreencherLista(arquivo);
+        listaSeq.PreencherLista(arquivo); // Preencher a lista sequencial com dados do arquivo
         fimSeq = clock();
+        cout << "Lista sequencial inicializada" << endl;
+        calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
 
         inicioEnc = clock();
-        listaEnc.PreencherLista(arquivo);
+        listaEnc.PreencherLista(arquivo); // Preencher a lista encadeada com dados do arquivo
         fimEnc = clock();
-
-        calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
+        cout << "Lista encadeada inicializada" << endl;
         calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
 
-        while (opcao != 11) {
+        opcao = 0;
+
+        while (opcao != 10) {
 
             getOpcao(opcao);
 
@@ -97,19 +99,19 @@ int main() {
                     cin >> RGEscolhido;
 
                     inicioSeq = clock();
-                    listaSeq.InserirElemento(0, nomeEscolhido, RGEscolhido);
+                    listaSeq.InserirElemento(0, nomeEscolhido, RGEscolhido); // Inserir no início da lista sequencial
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.InserirElemento(0, nomeEscolhido, RGEscolhido);
+                    listaEnc.InserirElemento(0, nomeEscolhido, RGEscolhido); // Inserir no início da lista encadeada
                     fimEnc = clock();
 
-                    calculaTempoExec("Lista Sequencial", inicioSeq, fimSeq);
+                    calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
-
 
                 case 2:
                     cout << "Insira o nome e rg que deseja adicionar" << endl;
@@ -117,83 +119,88 @@ int main() {
                     cin >> RGEscolhido;
 
                     inicioSeq = clock();
-                    listaSeq.InserirElemento(-1, nomeEscolhido, RGEscolhido);
+                    listaSeq.InserirElemento(-1, nomeEscolhido, RGEscolhido); // Inserir no fim da lista sequencial
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.InserirElemento(-1, nomeEscolhido, RGEscolhido);
+                    listaEnc.InserirElemento(-1, nomeEscolhido, RGEscolhido); // Inserir no fim da lista encadeada
                     fimEnc = clock();
 
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
 
                 case 3:
-                    cout << "Digite a posicao desejada: " << endl;
+                    cout << "Digite a posição desejada: " << endl;
                     cin >> N;
                     cout << "Insira o nome e rg que deseja adicionar" << endl;
                     cin >> nomeEscolhido;
                     cin >> RGEscolhido;
 
                     inicioSeq = clock();
-                    listaSeq.InserirElemento(N, nomeEscolhido, RGEscolhido);
+                    listaSeq.InserirElemento(N, nomeEscolhido, RGEscolhido); // Inserir em uma posição específica na lista sequencial
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.InserirElemento(N, nomeEscolhido, RGEscolhido);
+                    listaEnc.InserirElemento(N, nomeEscolhido, RGEscolhido); // Inserir em uma posição específica na lista encadeada
                     fimEnc = clock();
 
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
 
                 case 4:
                     inicioSeq = clock();
-                    listaSeq.RemoverElemento(0);
+                    listaSeq.RemoverElemento(0); // Remover do início da lista sequencial
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.RemoverElemento(0);
+                    listaEnc.RemoverElemento(0); // Remover do início da lista encadeada
                     fimEnc = clock();
 
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
 
                 case 5:
                     inicioSeq = clock();
-                    listaSeq.RemoverElemento(-1);
+                    listaSeq.RemoverElemento(-1); // Remover do fim da lista sequencial
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.RemoverElemento(-1);
+                    listaEnc.RemoverElemento(-1); // Remover do fim da lista encadeada
                     fimEnc = clock();
 
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
 
                 case 6:
-                    cout << "Digite a posicao desejada: " << endl;
+                    cout << "Digite a posição desejada: " << endl;
                     cin >> N;
                     inicioSeq = clock();
-                    listaSeq.RemoverElemento(N);
+                    listaSeq.RemoverElemento(N); // Remover de uma posição específica na lista sequencial
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.RemoverElemento(N);
+                    listaEnc.RemoverElemento(N); // Remover de uma posição específica na lista encadeada
                     fimEnc = clock();
 
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
@@ -202,26 +209,27 @@ int main() {
                     cout << "Digite o RG da pessoa que deseja encontrar: " << endl;
                     cin >> RG;
                     inicioSeq = clock();
-                    listaSeq.EncontrarElemento(RG);
+                    listaSeq.EncontrarElemento(RG); // Procurar um dado na lista sequencial
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.EncontrarElemento(RG);
+                    listaEnc.EncontrarElemento(RG); // Procurar um dado na lista encadeada
                     fimEnc = clock();
 
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
 
                 case 8:
                     inicioSeq = clock();
-                    listaSeq.ImprimirLista();
+                    listaSeq.ImprimirLista(); // Mostrar a lista sequencial completa
                     fimSeq = clock();
 
                     inicioEnc = clock();
-                    listaEnc.ImprimirLista();
+                    listaEnc.ImprimirLista(); // Mostrar a lista encadeada completa
                     fimEnc = clock();
 
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
@@ -232,41 +240,33 @@ int main() {
 
                 case 9:
                     inicioSeq = clock();
-                    listaSeq.ExportarLista("dados" + to_string(contadorTXT) + ".txt");
+                    listaSeq.ExportarLista("dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista sequencial para um arquivo
                     contadorTXT++;
                     fimSeq = clock();
+                    calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
 
                     inicioEnc = clock();
-                    listaEnc.ExportarLista("dados" + to_string(contadorTXT) + ".txt");
+                    listaEnc.ExportarLista("dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista encadeada para um arquivo
                     fimEnc = clock();
-
-                    calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
                     calculaTempoExec("Lista Encadeada", inicioEnc, fimEnc);
+
                     pausarExecucao();
 
                     break;
 
                 case 10:
-                    inicio = clock();
-                    ListaSequencial::LerArquivo(arquivo);
-                    fim = clock();
-
-                    calculaTempoExec("ler o .txt", inicio, fim);
-                    pausarExecucao();
-
+                    cout << "Voltando para seleção de arquivo..." << endl;
                     break;
 
                 case 11:
-                    cout << "Voltando para selecao de arquivo..." << endl;
-                    break;
+                    cout << "Encerrando o programa." << endl;
+                    arquivo.close();
+                    return 0;
 
                 default:
-                    cout << "Escolha um n�mero de 1 a 11." << endl;
+                    cout << "Escolha um numero de 1 a 10." << endl;
             }
         }
     }
-    if (arquivo.is_open()) {
-        arquivo.close();
-    }
-    return 0;
+    return 1;
 }

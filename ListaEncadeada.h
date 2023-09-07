@@ -19,7 +19,7 @@ public:
     ListaEncadeada();
     ~ListaEncadeada();
     void PreencherLista(ifstream &arquivo);
-    void InserirElemento(int pos, string nome, string rg);
+    void InserirElemento(int pos, const string& nome, const string& rg);
     void RemoverElemento(int pos);
     void EncontrarElemento(string &RG);
     void ImprimirLista();

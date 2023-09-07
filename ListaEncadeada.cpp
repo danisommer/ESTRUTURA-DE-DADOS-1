@@ -11,15 +11,22 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <utility>
 
 using namespace std;
 
+// Construtor da ListaEncadeada
 ListaEncadeada::ListaEncadeada() : inicio(nullptr) {}
 
+// Destrutor padrão da ListaEncadeada
 ListaEncadeada::~ListaEncadeada() = default;
 
+// Função para preencher a lista encadeada a partir de um arquivo
 void ListaEncadeada::PreencherLista(ifstream &arquivo) {
+    while (inicio != nullptr) {
+        Nodo* nodoAEliminar = inicio;
+        inicio = inicio->proximo;
+        delete nodoAEliminar;
+    }
     string linha, nome, rgStr;
 
     arquivo.clear();
@@ -53,21 +60,34 @@ void ListaEncadeada::PreencherLista(ifstream &arquivo) {
     }
 }
 
-void ListaEncadeada::InserirElemento(int pos, string nome, string rg) {
-    //pos = 0 -> inicio | pos = -1 -> fim | pos = N -> qualquer pos
+// Função para inserir um elemento na lista encadeada
+void ListaEncadeada::InserirElemento(int pos, const string& nome, const string& rg) {
+    //pos = 0 → inicio | pos = -1 → fim | pos = N → qualquer pos
+
+    int contadorIf = 0;
 
     // Cria um novo nodo com os dados fornecidos
     Nodo* novoNodo = new Nodo;
-    novoNodo->dado.nome = std::move(nome);
-    novoNodo->dado.rg = std::move(rg);
+    novoNodo->dado.nome = nome;
+    novoNodo->dado.rg = rg;
 
+    // Armazena os dados do elemento que será inserido
+    Dado elementoInserido = novoNodo->dado;
+
+    contadorIf++;
     if (pos == 0) {
         // Inserir no início da lista
         novoNodo->proximo = inicio;
         inicio = novoNodo;
+
+        // Imprimir o elemento inserido
+        cout << "Elemento " << elementoInserido.nome << "," << elementoInserido.rg << " inserido no inicio da lista encadeada\n" << endl;
+
     } else if (pos == -1) {
+        contadorIf++;
         // Inserir no fim da lista
         novoNodo->proximo = nullptr;
+        contadorIf++;
         if (inicio == nullptr) {
             // Se a lista estiver vazia, o novo nodo se torna o início da lista
             inicio = novoNodo;
@@ -79,9 +99,22 @@ void ListaEncadeada::InserirElemento(int pos, string nome, string rg) {
             }
             atual->proximo = novoNodo;
         }
+
+        // Imprimir o elemento inserido
+        cout << "Elemento " << elementoInserido.nome << "," << elementoInserido.rg << " inserido no fim da lista encadeada\n" << endl;
+
     } else {
+        contadorIf++;
+        if (pos < 0) {
+            // Verificar se a posição é válida
+            cout << "Posicao invalida." << endl;
+            delete novoNodo; // Liberar a memória alocada para o novoNodo
+            return;
+        }
+
         // Inserir em uma posição específica
-        if (inicio == nullptr || pos <= 0) {
+        contadorIf++;
+        if (inicio == nullptr) {
             // Se a lista estiver vazia ou a posição for inválida, insere no início
             novoNodo->proximo = inicio;
             inicio = novoNodo;
@@ -97,32 +130,64 @@ void ListaEncadeada::InserirElemento(int pos, string nome, string rg) {
                 contador++;
             }
 
+            contadorIf++;
+            if (pos > contador) {
+                // Verificar se a posição é válida
+                cout << "Posicao invalida." << endl;
+                delete novoNodo; // Liberar a memória alocada para o novoNodo
+                return;
+            }
+
             // Insere o novo nodo na posição encontrada
             anterior->proximo = novoNodo;
             novoNodo->proximo = atual;
-
         }
+
+        // Imprimir o elemento inserido
+        cout << "Elemento " << elementoInserido.nome << "," << elementoInserido.rg << " inserido na posicao " << pos << " da lista encadeada\n" << endl;
     }
+
+    cout << "Numero de copias para a lista encadeada = 0" << endl;
+    cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
 }
 
+// Função para remover um elemento da lista encadeada
 void ListaEncadeada::RemoverElemento(int pos) {
-    //pos = 0 -> inicio | pos = -1 -> fim | pos = N -> qualquer pos
+    //pos = 0 → inicio | pos = -1 → fim | pos = N → qualquer pos
+    int contadorIf = 0;
+
+    contadorIf++;
     if (inicio == nullptr) {
-        cout << "LE - Lista vazia, nenhum elemento para remover." << endl;
+        cout << "Lista vazia, nenhum elemento para remover." << endl;
         return;
     }
 
     if (pos == 0) {
+        // Armazena o elemento que será removido
+        Dado elementoRemovido = inicio->dado;
+
         // Remover o elemento no início da lista
         Nodo* temp = inicio;
         inicio = inicio->proximo;
         delete temp;
+
+        // Imprimir o elemento removido
+        cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do inicio da lista encadeada\n" << endl;
     } else if (pos == -1) {
+        contadorIf++;
         // Remover o elemento no fim da lista
+        contadorIf++;
         if (inicio->proximo == nullptr) {
             // Se houver apenas um elemento na lista
+
+            // Armazena o elemento que será removido
+            Dado elementoRemovido = inicio->dado;
+
             delete inicio;
             inicio = nullptr;
+
+            // Imprimir o elemento removido
+            cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do fim da lista encadeada\n" << endl;
         } else {
             Nodo* anterior = nullptr;
             Nodo* atual = inicio;
@@ -132,13 +197,21 @@ void ListaEncadeada::RemoverElemento(int pos) {
                 atual = atual->proximo;
             }
 
+            // Armazena o elemento que será removido
+            Dado elementoRemovido = atual->dado;
+
             anterior->proximo = nullptr;
             delete atual;
+
+            // Imprimir o elemento removido
+            cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << "removido do fim da lista encadeada\n" << endl;
         }
+
     } else {
         // Remover elemento em uma posição específica
+        contadorIf++;
         if (pos < 0) {
-            cout << "LE - Posição inválida para remoção." << endl;
+            cout << "Posicao invalida." << endl;
             return;
         }
 
@@ -151,24 +224,41 @@ void ListaEncadeada::RemoverElemento(int pos) {
             atual = atual->proximo;
             contador++;
         }
-
+        contadorIf++;
+        if (pos > contador) {
+            // Verificar se a posição é válida
+            cout << "Posicao invalida." << endl;
+            return;
+        }
+        contadorIf++;
         if (atual == nullptr) {
-            cout << "LE - Posição não encontrada para remoção." << endl;
+            cout << "Posicao invalida." << endl;
         } else {
+            // Armazena o elemento que será removido
+            Dado elementoRemovido = atual->dado;
+
             anterior->proximo = atual->proximo;
             delete atual;
+
+            // Imprimir o elemento removido
+            cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido da posicao " << pos << " da lista encadeada\n" << endl;
         }
     }
+    cout << "Numero de copias para a lista encadeada = 0" << endl;
+    cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
 }
 
+// Função para encontrar um elemento na lista encadeada com base no RG
 void ListaEncadeada::EncontrarElemento(string &RG) {
     Nodo* atual = inicio;
     int posicao = 0;
+    int contadorIf = 0;
     bool encontrado = false;
 
     while (atual != nullptr) {
+        contadorIf++;
         if (atual->dado.rg == RG) {
-            cout << "O elemento se encontra na posicao " << posicao << endl;
+            cout << "O elemento " << atual->dado.nome << "," << atual->dado.rg <<  " se encontra na posicao " << posicao << "\n" << endl;
             encontrado = true;
             break; // Elemento encontrado, podemos sair do loop
         }
@@ -176,12 +266,15 @@ void ListaEncadeada::EncontrarElemento(string &RG) {
         atual = atual->proximo;
         posicao++;
     }
-
+    contadorIf++;
     if (!encontrado) {
         cout << "O elemento nao foi encontrado" << endl;
     }
+    cout << "Numero de copias para a lista encadeada = 0" << endl;
+    cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
 }
 
+// Função para imprimir a lista encadeada
 void ListaEncadeada::ImprimirLista() {
     Nodo* atual = inicio;
     int posicao = 0;
@@ -194,6 +287,7 @@ void ListaEncadeada::ImprimirLista() {
     }
 }
 
+// Função para exportar a lista encadeada para um arquivo
 void ListaEncadeada::ExportarLista(const string& nomeArquivo) {
     ofstream arquivo(nomeArquivo);
 

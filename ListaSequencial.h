@@ -19,6 +19,4 @@ public:
     void EncontrarElemento(string &RG);
     void ImprimirLista();
     void ExportarLista(const string& nomeArquivo);
-    static void LerArquivo(ifstream &arquivo) ;
-
 };
