@@ -94,7 +94,7 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
         // Liberar memória da cópia
         delete[] copia;
 
-        cout << "Elemento " << nome << "," << rg << " inserido no início da lista sequencial\n" << endl;
+        cout << "Elemento " << nome << "," << rg << " inserido no inicio da lista sequencial\n" << endl;
 
     } else if (pos == -1) {
         contadorIf++;
@@ -231,7 +231,7 @@ void ListaSequencial::RemoverElemento(int pos) {
         delete[] copia;
 
         // Imprimir o elemento removido
-        cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do início da lista sequencial\n" << endl;
+        cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do inicio da lista sequencial\n" << endl;
 
     } else if (pos == -1) {
         contadorIf++;

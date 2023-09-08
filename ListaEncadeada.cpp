@@ -187,7 +187,7 @@ void ListaEncadeada::RemoverElemento(int pos) {
             inicio = nullptr;
 
             // Imprimir o elemento removido
-            cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do fim da lista encadeada\n" << endl;
+            cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << "  removido do fim da lista encadeada\n" << endl;
         } else {
             Nodo* anterior = nullptr;
             Nodo* atual = inicio;

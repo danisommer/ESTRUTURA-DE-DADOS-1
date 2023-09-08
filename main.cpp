@@ -53,7 +53,8 @@ int main() {
     string nome, nomeEscolhido, RGEscolhido, diretorio, linha, RG;
     ListaSequencial listaSeq;
     ListaEncadeada listaEnc;
-    int opcao = 0, N, contadorTXT = 0;
+    int opcao = 0, N;
+    int contadorTXT = 0;
     ifstream arquivo;
 
     while (true) {
@@ -134,7 +135,7 @@ int main() {
                     break;
 
                 case 3:
-                    cout << "Digite a posição desejada: " << endl;
+                    cout << "Digite a posicao desejada: " << endl;
                     cin >> N;
                     cout << "Insira o nome e rg que deseja adicionar" << endl;
                     cin >> nomeEscolhido;
@@ -188,7 +189,7 @@ int main() {
                     break;
 
                 case 6:
-                    cout << "Digite a posição desejada: " << endl;
+                    cout << "Digite a posicao desejada: " << endl;
                     cin >> N;
                     inicioSeq = clock();
                     listaSeq.RemoverElemento(N); // Remover de uma posição específica na lista sequencial
@@ -240,22 +241,23 @@ int main() {
 
                 case 9:
                     inicioSeq = clock();
-                    listaSeq.ExportarLista("dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista sequencial para um arquivo
-                    contadorTXT++;
+                    listaSeq.ExportarLista("Seq_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista sequencial para um arquivo
                     fimSeq = clock();
                     calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
 
                     inicioEnc = clock();
-                    listaEnc.ExportarLista("dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista encadeada para um arquivo
+                    listaEnc.ExportarLista("Enc_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista encadeada para um arquivo
                     fimEnc = clock();
                     calculaTempoExec("Lista Encadeada", inicioEnc, fimEnc);
+
+                    contadorTXT++;
 
                     pausarExecucao();
 
                     break;
 
                 case 10:
-                    cout << "Voltando para seleção de arquivo..." << endl;
+                    cout << "Voltando para selecao de arquivo..." << endl;
                     break;
 
                 case 11:
