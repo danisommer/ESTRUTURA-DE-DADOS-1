@@ -53,7 +53,7 @@ void getArquivo(int &opcao2) {
 
 // Função para obter a opção do usuário
 void getOpcao(int &opcao) {
-    // limparTela();
+
     cout << "\nDigite a opcao que deseja utilizar:\n"
          << "(1) Inserir dado no inicio da lista\n"
          << "(2) Inserir dado no fim da lista\n"
@@ -81,12 +81,12 @@ int main() {
     string nome, nomeEscolhido, RGEscolhido, diretorio, linha, RG;
     ListaSequencial listaSeq;
     ListaEncadeada listaEnc;
-    int opcao, opcao2, N;
+    int opcao, opcao2 = 0, N;
     int contadorTXT = 0;
     ifstream arquivo;
 
-    while (true) {
-        // limparTela();
+    while (opcao2 != 9) {
+
 
         if (arquivo.is_open()) {
             arquivo.close(); // Fechar o arquivo atual, se estiver aberto
@@ -124,7 +124,7 @@ int main() {
                 cin >> nome;
                 break;
             case 9:
-                cout << "Encerrando programa" << endl;
+                cout << "Encerrando o programa" << endl;
                 return 0;
             default:
                 cout << "Escolha um numero de 1 a 9." << endl;
@@ -153,7 +153,7 @@ int main() {
         calculaTempoExec("Lista Encadeada",inicioEnc, fimEnc);
 
         opcao = 0;
-        // limparTela();
+
 
         while (opcao != 10) {
 
@@ -161,8 +161,6 @@ int main() {
 
             switch (opcao) {
                 case 1:
-
-                    // limparTela();
                     cout << "Insira o nome e rg que deseja adicionar" << endl;
                     cin >> nomeEscolhido;
                     cin >> RGEscolhido;
@@ -183,7 +181,6 @@ int main() {
                     break;
 
                 case 2:
-                    // limparTela();
                     cout << "Insira o nome e rg que deseja adicionar" << endl;
                     cin >> nomeEscolhido;
                     cin >> RGEscolhido;
@@ -204,7 +201,6 @@ int main() {
                     break;
 
                 case 3:
-                    // limparTela();
                     cout << "Digite a posicao desejada: " << endl;
                     cin >> N;
                     cout << "Insira o nome e rg que deseja adicionar" << endl;
@@ -227,7 +223,6 @@ int main() {
                     break;
 
                 case 4:
-                    // limparTela();
                     inicioSeq = clock();
                     listaSeq.RemoverElemento(0); // Remover do início da lista sequencial
                     fimSeq = clock();
@@ -244,7 +239,6 @@ int main() {
                     break;
 
                 case 5:
-                    // limparTela();
                     inicioSeq = clock();
                     listaSeq.RemoverElemento(-1); // Remover do fim da lista sequencial
                     fimSeq = clock();
@@ -261,7 +255,6 @@ int main() {
                     break;
 
                 case 6:
-                    // limparTela();
                     cout << "Digite a posicao desejada: " << endl;
                     cin >> N;
                     inicioSeq = clock();
@@ -280,7 +273,6 @@ int main() {
                     break;
 
                 case 7:
-                    // limparTela();
                     cout << "Digite o RG da pessoa que deseja encontrar: " << endl;
                     cin >> RG;
                     inicioSeq = clock();
@@ -299,7 +291,6 @@ int main() {
                     break;
 
                 case 8:
-                    // limparTela();
                     inicioSeq = clock();
                     listaSeq.ImprimirLista(); // Mostrar a lista sequencial completa
                     fimSeq = clock();
@@ -315,7 +306,6 @@ int main() {
                     break;
 
                 case 9:
-                    // limparTela();
                     inicioSeq = clock();
                     listaSeq.ExportarLista("Seq_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista sequencial para um arquivo
                     fimSeq = clock();
@@ -333,18 +323,15 @@ int main() {
                     break;
 
                 case 10:
-                    // limparTela();
                     cout << "Voltando para selecao de arquivo..." << endl;
                     break;
 
                 case 11:
-                    // limparTela();
                     cout << "Encerrando o programa." << endl;
                     arquivo.close();
                     return 0;
 
                 default:
-                    // limparTela();
                     cout << "Escolha um numero de 1 a 10." << endl;
             }
         }
