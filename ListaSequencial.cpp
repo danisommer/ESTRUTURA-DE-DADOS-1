@@ -70,8 +70,9 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
         for (int i = 0; i < capacidade; i++) {
             copia[i].nome = elementos[i].nome;
             copia[i].rg = elementos[i].rg;
+            contadorCopias+=2;
+
         }
-        contadorCopias++;
 
         // Liberar memória dos elementos antigos
         delete[] elementos;
@@ -88,8 +89,9 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
         for (int j = 0; j < capacidade - 1; j++) {
             elementos[j + 1].nome = copia[j].nome;
             elementos[j + 1].rg = copia[j].rg;
+            contadorCopias+=2;
+
         }
-        contadorCopias++;
 
         // Liberar memória da cópia
         delete[] copia;
@@ -106,8 +108,9 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
         for (int i = 0; i < capacidade; i++) {
             copia[i].nome = elementos[i].nome;
             copia[i].rg = elementos[i].rg;
+            contadorCopias+=2;
+
         }
-        contadorCopias++;
 
         // Liberar memória dos elementos antigos
         delete[] elementos;
@@ -124,8 +127,9 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
         for (int j = 0; j < capacidade - 1; j++) {
             elementos[j].nome = copia[j].nome;
             elementos[j].rg = copia[j].rg;
+            contadorCopias+=2;
+
         }
-        contadorCopias++;
 
         // Liberar memória da cópia
         delete[] copia;
@@ -147,19 +151,22 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
         for (int i = 0; i < pos; i++) {
             copia[i].nome = elementos[i].nome;
             copia[i].rg = elementos[i].rg;
+            contadorCopias+=2;
         }
-        contadorCopias++;
 
         // Inserir novo elemento na posição pos
         copia[pos].nome = nome;
         copia[pos].rg = rg;
+        contadorCopias+=2;
+
 
         // Copiar os elementos restantes para a nova capacidade
         for (int i = pos; i < capacidade; i++) {
             copia[i + 1].nome = elementos[i].nome;
             copia[i + 1].rg = elementos[i].rg;
+            contadorCopias+=2;
+
         }
-        contadorCopias++;
 
         // Liberar memória dos elementos antigos
         delete[] elementos;
@@ -173,7 +180,7 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
             elementos[j].nome = copia[j].nome;
             elementos[j].rg = copia[j].rg;
         }
-        contadorCopias++;
+        contadorCopias+=2;
 
         // Liberar memória da cópia
         delete[] copia;
@@ -210,8 +217,8 @@ void ListaSequencial::RemoverElemento(int pos) {
         for (int i = 1; i < capacidade; i++) {
             copia[i - 1].nome = elementos[i].nome;
             copia[i - 1].rg = elementos[i].rg;
+            contadorCopias+=2;
         }
-        contadorCopias++;
 
         // Liberar memória dos elementos antigos
         delete[] elementos;
@@ -224,8 +231,8 @@ void ListaSequencial::RemoverElemento(int pos) {
         for (int j = 0; j < capacidade; j++) {
             elementos[j].nome = copia[j].nome;
             elementos[j].rg = copia[j].rg;
+            contadorCopias+=2;
         }
-        contadorCopias++;
 
         // Liberar memória da cópia
         delete[] copia;
@@ -245,8 +252,8 @@ void ListaSequencial::RemoverElemento(int pos) {
         for (int i = 0; i < capacidade - 1; i++) {
             copia[i].nome = elementos[i].nome;
             copia[i].rg = elementos[i].rg;
+            contadorCopias+=2;
         }
-        contadorCopias++;
 
         // Liberar memória dos elementos antigos
         delete[] elementos;
@@ -259,8 +266,8 @@ void ListaSequencial::RemoverElemento(int pos) {
         for (int j = 0; j < capacidade; j++) {
             elementos[j].nome = copia[j].nome;
             elementos[j].rg = copia[j].rg;
+            contadorCopias+=2;
         }
-        contadorCopias++;
 
         // Liberar memória da cópia
         delete[] copia;
@@ -280,14 +287,15 @@ void ListaSequencial::RemoverElemento(int pos) {
         for (int i = 0; i < pos; i++) {
             copia[i].nome = elementos[i].nome;
             copia[i].rg = elementos[i].rg;
+            contadorCopias+=2;
+
         }
-        contadorCopias++;
 
         for (int i = pos + 1; i < capacidade; i++) {
             copia[i - 1].nome = elementos[i].nome;
             copia[i - 1].rg = elementos[i].rg;
+            contadorCopias+=2;
         }
-        contadorCopias++;
 
         // Liberar memória dos elementos antigos
         delete[] elementos;
@@ -300,8 +308,8 @@ void ListaSequencial::RemoverElemento(int pos) {
         for (int j = 0; j < capacidade; j++) {
             elementos[j].nome = copia[j].nome;
             elementos[j].rg = copia[j].rg;
+            contadorCopias+=2;
         }
-        contadorCopias++;
 
         // Liberar memória da cópia
         delete[] copia;
