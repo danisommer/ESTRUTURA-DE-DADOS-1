@@ -23,6 +23,6 @@ public:
     void RemoverElemento(int pos);
     void EncontrarElemento(string &RG);
     void ImprimirLista();
-    void ExportarLista(const string& nomeArquivo);
+    void ExportarLista(const string& diretorio, const string& nomeArquivo);
 
 };

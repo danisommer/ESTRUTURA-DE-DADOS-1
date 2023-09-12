@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void limparTela();
+//void limparTela();
 void pausarExecucao();
 void getArquivo(int &opcao2);
 void getOpcao(int &opcao);

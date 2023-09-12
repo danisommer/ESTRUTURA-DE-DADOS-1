@@ -11,11 +11,12 @@
 #include <fstream>
 #include <ctime>
 #include <iomanip>
-#include <limits>
 #include "ListaEncadeada.h"
 #include "ListaSequencial.h"
 #include "Dado.h"
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCDFAInspection"
 using namespace std;
 
 /*
@@ -27,7 +28,6 @@ void limparTela() {
   #endif
 }
 */
-
 // Função para pausar a execução e esperar pelo pressionamento de Enter
 void pausarExecucao() {
     cout << "Pressione Enter para continuar...";
@@ -48,12 +48,11 @@ void getArquivo(int &opcao2) {
          << "(8) Outro\n"
          << "(9) Sair\n";
     cin >> opcao2;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 // Função para obter a opção do usuário
 void getOpcao(int &opcao) {
-
+    //limparTela();
     cout << "\nDigite a opcao que deseja utilizar:\n"
          << "(1) Inserir dado no inicio da lista\n"
          << "(2) Inserir dado no fim da lista\n"
@@ -78,14 +77,14 @@ void calculaTempoExec(const string& tipoLista, clock_t inicio, clock_t fim) {
 
 int main() {
     clock_t inicioSeq, fimSeq, inicioEnc, fimEnc;
-    string nome, nomeEscolhido, RGEscolhido, diretorio, linha, RG;
+    string nome, nomeEscolhido, RGEscolhido, linha, RG, nomeArquivoSec,nomeArquivoEnc;
+    string diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/";
     ListaSequencial listaSeq;
     ListaEncadeada listaEnc;
-    int opcao, opcao2 = 0, N;
-    int contadorTXT = 0;
+    int opcao = -1, opcao2 = -1, N, op, contadorTXT = 0;
     ifstream arquivo;
 
-    while (opcao2 != 9) {
+    while (opcao != 11 && opcao2 != 9) {
 
 
         if (arquivo.is_open()) {
@@ -125,15 +124,14 @@ int main() {
                 break;
             case 9:
                 cout << "Encerrando o programa" << endl;
-                return 0;
+                continue;
             default:
                 cout << "Escolha um numero de 1 a 9." << endl;
         }
 
 
         // Montar o caminho completo do arquivo
-        diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/" + nome;
-        arquivo.open(diretorio);
+        arquivo.open(diretorio + nome);
 
         if (!arquivo.is_open()) {
             cout << "Erro ao abrir o arquivo." << endl;
@@ -155,7 +153,7 @@ int main() {
         opcao = 0;
 
 
-        while (opcao != 10) {
+        while (opcao != 10 && opcao != 11) {
 
             getOpcao(opcao);
 
@@ -306,18 +304,44 @@ int main() {
                     break;
 
                 case 9:
-                    inicioSeq = clock();
-                    listaSeq.ExportarLista("Seq_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista sequencial para um arquivo
-                    fimSeq = clock();
-                    calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
+                    cout << "\nEscolha uma opcao para salvar o arquivo:\n"
+                         << "(1) Criar novo arquivo.\n"
+                         << "(2) Salvar em arquivo ja existente.\n";
+                    cin >> op;
 
-                    inicioEnc = clock();
-                    listaEnc.ExportarLista("Enc_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista encadeada para um arquivo
-                    fimEnc = clock();
-                    calculaTempoExec("Lista Encadeada", inicioEnc, fimEnc);
+                    switch (op) {
+                        case 1:
+                            inicioSeq = clock();
+                            listaSeq.ExportarLista(diretorio,"Seq_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista sequencial para um arquivo
+                            fimSeq = clock();
+                            calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
+
+                            inicioEnc = clock();
+                            listaEnc.ExportarLista(diretorio,"Enc_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista encadeada para um arquivo
+                            fimEnc = clock();
+                            calculaTempoExec("Lista Encadeada", inicioEnc, fimEnc);
+                            break;
+                        case 2:
+                            cout << "Digite o nome do arquivo para salvar a lista sequencial: " << endl;
+                            cin >> nomeArquivoSec;
+                            cout << "Digite o nome do arquivo para salvar a lista encadeada: " << endl;
+                            cin >> nomeArquivoEnc;
+
+                            inicioSeq = clock();
+                            listaSeq.ExportarLista(diretorio,nomeArquivoSec); // Exportar a lista sequencial para um arquivo
+                            fimSeq = clock();
+                            calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
+
+                            inicioEnc = clock();
+                            listaEnc.ExportarLista(diretorio,nomeArquivoEnc); // Exportar a lista encadeada para um arquivo
+                            fimEnc = clock();
+                            calculaTempoExec("Lista Encadeada", inicioEnc, fimEnc);
+                            break;
+                        default:
+                            cout << "Escolha uma das duas opcoes." << endl;
+                    }
 
                     contadorTXT++;
-
                     pausarExecucao();
 
                     break;
@@ -329,7 +353,7 @@ int main() {
                 case 11:
                     cout << "Encerrando o programa." << endl;
                     arquivo.close();
-                    return 0;
+                    break;
 
                 default:
                     cout << "Escolha um numero de 1 a 10." << endl;
@@ -338,3 +362,5 @@ int main() {
     }
     return 1;
 }
+
+#pragma clang diagnostic pop

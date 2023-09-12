@@ -349,8 +349,8 @@ void ListaSequencial::ImprimirLista() {
 }
 
 // Função para exportar a lista sequencial para um arquivo
-void ListaSequencial::ExportarLista(const string& nomeArquivo) {
-    ofstream arquivo(nomeArquivo);
+void ListaSequencial::ExportarLista(const string& diretorio, const string& nomeArquivo) {
+    ofstream arquivo(diretorio + nomeArquivo);
 
     if (!arquivo.is_open()) {
         cout << "Não foi possível abrir o arquivo." << endl;
