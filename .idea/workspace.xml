@@ -20,13 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e3db762-d116-4596-b2e3-68bd8b0efe0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ESTRUTURA_DE_DADOS.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ESTRUTURA_DE_DADOS.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="4e3db762-d116-4596-b2e3-68bd8b0efe0e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +96,7 @@
       <workItem from="1694439862663" duration="21000" />
       <workItem from="1694449683665" duration="2214000" />
       <workItem from="1694457762867" duration="5812000" />
-      <workItem from="1694463852453" duration="1586000" />
+      <workItem from="1694463852453" duration="1638000" />
     </task>
     <servers />
   </component>
