@@ -295,7 +295,7 @@ void ListaEncadeada::EncontrarElemento(string &RG) {
         cout << "O elemento nao foi encontrado" << endl;
     }
     cout << "Numero de copias para a lista encadeada = " << contadorCopias << endl;
-    cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
+    cout << "Numero de IFs para a lista encadeada = " << contadorIf << "\n" << endl;
 }
 
 // Função para imprimir a lista encadeada

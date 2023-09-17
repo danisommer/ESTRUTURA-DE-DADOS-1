@@ -326,17 +326,26 @@ void ListaSequencial::RemoverElemento(int pos) {
 
 // Função para encontrar um elemento na lista sequencial com base no RG
 void ListaSequencial::EncontrarElemento(string &RG) {
+    int posicao = 0;
     int contadorIf = 0;
+    int contadorCopias = 0;
+    bool encontrado = false;
+
     for (int i = 0; i < capacidade; i++) {
         contadorIf++;
         if (elementos[i].rg == RG) {
             cout << "O elemento " << elementos[i].nome << "," << elementos[i].rg << " se encontra na posicao " << i << "\n" << endl;
-            cout << "Numero de copias para a lista sequencial = 0" << endl;
-            cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
-            return;
+            encontrado = true;
+            break; // Elemento encontrado, podemos sair do loop
         }
+        posicao++;
     }
-    cout << "O elemento nao foi encontrado" << endl;
+    contadorIf++;
+    if (!encontrado) {
+        cout << "O elemento nao foi encontrado" << endl;
+    }
+    cout << "Numero de copias para a lista encadeada = " << contadorCopias << endl;
+    cout << "Numero de IFs para a lista encadeada = " << contadorIf << "\n" << endl;
 }
 
 // Função para imprimir a lista sequencial
