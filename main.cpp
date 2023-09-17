@@ -11,12 +11,15 @@
 #include <fstream>
 #include <ctime>
 #include <iomanip>
+#include <windows.h>
 #include "ListaEncadeada.h"
 #include "ListaSequencial.h"
 #include "Dado.h"
+#define N_ARQUIVOS 7
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCDFAInspection"
+
 using namespace std;
 
 /*
@@ -28,6 +31,7 @@ void limparTela() {
   #endif
 }
 */
+
 // Função para pausar a execução e esperar pelo pressionamento de Enter
 void pausarExecucao() {
     cout << "Pressione Enter para continuar...";
@@ -81,11 +85,31 @@ int main() {
     string diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/";
     ListaSequencial listaSeq;
     ListaEncadeada listaEnc;
-    int opcao = -1, opcao2 = -1, N, op, contadorTXT = 0;
+    int opcao = -1, opcao2 = -1, N, op, contadorTXT;
     ifstream arquivo;
 
-    while (opcao != 11 && opcao2 != 9) {
+    WIN32_FIND_DATA findFileData;
+    HANDLE hFind = FindFirstFile("C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/*.*", &findFileData);
 
+    if (hFind == INVALID_HANDLE_VALUE) {
+        std::cerr << "Erro ao abrir a pasta." << std::endl;
+        return 1;
+    }
+
+    int fileCount = 0;
+
+    do {
+        if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
+            // Se o item não for um diretório, é um arquivo.
+            fileCount++;
+        }
+    } while (FindNextFile(hFind, &findFileData) != 0);
+
+    FindClose(hFind);
+
+    contadorTXT = (fileCount - N_ARQUIVOS)/2;
+
+while (opcao != 11 && opcao2 != 9) {
 
         if (arquivo.is_open()) {
             arquivo.close(); // Fechar o arquivo atual, se estiver aberto
@@ -304,9 +328,9 @@ int main() {
                     break;
 
                 case 9:
-                    cout << "\nEscolha uma opcao para salvar o arquivo:\n"
-                         << "(1) Criar novo arquivo.\n"
-                         << "(2) Salvar em arquivo ja existente.\n";
+                    cout << "Escolha uma opcao para salvar o arquivo:\n"
+                         << "(1) Gerar arquivo automaticamente.\n"
+                         << "(2) Gerar arquivo manualmente (escolher o nome).\n";
                     cin >> op;
 
                     switch (op) {
@@ -320,20 +344,21 @@ int main() {
                             listaEnc.ExportarLista(diretorio,"Enc_Dados" + to_string(contadorTXT) + ".txt"); // Exportar a lista encadeada para um arquivo
                             fimEnc = clock();
                             calculaTempoExec("Lista Encadeada", inicioEnc, fimEnc);
+                            contadorTXT++;
                             break;
                         case 2:
-                            cout << "Digite o nome do arquivo para salvar a lista sequencial: " << endl;
+                            cout << "Digite o nome do arquivo para salvar a lista sequencial (sem a extensao .txt): " << endl;
                             cin >> nomeArquivoSec;
-                            cout << "Digite o nome do arquivo para salvar a lista encadeada: " << endl;
+                            cout << "Digite o nome do arquivo para salvar a lista encadeada (sem a extensao .txt): " << endl;
                             cin >> nomeArquivoEnc;
 
                             inicioSeq = clock();
-                            listaSeq.ExportarLista(diretorio,nomeArquivoSec); // Exportar a lista sequencial para um arquivo
+                            listaSeq.ExportarLista(diretorio,nomeArquivoSec + ".txt"); // Exportar a lista sequencial para um arquivo
                             fimSeq = clock();
                             calculaTempoExec("Lista Sequencial",inicioSeq, fimSeq);
 
                             inicioEnc = clock();
-                            listaEnc.ExportarLista(diretorio,nomeArquivoEnc); // Exportar a lista encadeada para um arquivo
+                            listaEnc.ExportarLista(diretorio,nomeArquivoEnc + ".txt"); // Exportar a lista encadeada para um arquivo
                             fimEnc = clock();
                             calculaTempoExec("Lista Encadeada", inicioEnc, fimEnc);
                             break;
@@ -341,7 +366,6 @@ int main() {
                             cout << "Escolha uma das duas opcoes." << endl;
                     }
 
-                    contadorTXT++;
                     pausarExecucao();
 
                     break;
@@ -360,6 +384,7 @@ int main() {
             }
         }
     }
+
     return 1;
 }
 

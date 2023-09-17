@@ -22,23 +22,17 @@
   <component name="ChangeListManager">
     <list default="true" id="4e3db762-d116-4596-b2e3-68bd8b0efe0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dado.h" beforeDir="false" afterPath="$PROJECT_DIR$/Dado.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaEncadeada.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ListaEncadeada.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaEncadeada.h" beforeDir="false" afterPath="$PROJECT_DIR$/ListaEncadeada.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaSequencial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ListaSequencial.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaSequencial.h" beforeDir="false" afterPath="$PROJECT_DIR$/ListaSequencial.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NomeRG10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NomeRG100.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NomeRG10K.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NomeRG1K.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NomeRG1M.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NomeRG50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-9044769bb99265c17a0e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-ced2254f571a2059e6bd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-09-02T18-31-48-0201.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/ListaEncadeada.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/ListaEncadeada.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/ListaSequencial.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/ListaSequencial.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ESTRUTURA_DE_DADOS.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ESTRUTURA_DE_DADOS.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,12 +59,16 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2UqlgfgLpuonZ4sgipImLCiwXNt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
@@ -120,7 +118,14 @@
       <workItem from="1694524638245" duration="961000" />
       <workItem from="1694526157481" duration="16000" />
       <workItem from="1694541115440" duration="1599000" />
-      <workItem from="1694552495464" duration="1138000" />
+      <workItem from="1694552495464" duration="4224000" />
+      <workItem from="1694623849999" duration="266000" />
+      <workItem from="1694624851254" duration="20000" />
+      <workItem from="1694624966376" duration="26000" />
+      <workItem from="1694626790739" duration="2782000" />
+      <workItem from="1694640398098" duration="1089000" />
+      <workItem from="1694702886704" duration="931000" />
+      <workItem from="1694917121510" duration="1984000" />
     </task>
     <servers />
   </component>
@@ -132,5 +137,8 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
