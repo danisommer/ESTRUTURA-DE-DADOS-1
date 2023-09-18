@@ -160,8 +160,8 @@ void ListaEncadeada::InserirElemento(int pos, const string& nome, const string& 
         cout << "Elemento " << elementoInserido.nome << "," << elementoInserido.rg << " inserido na posicao " << pos << " da lista encadeada\n" << endl;
     }
 
-    cout << "Numero de copias para a lista encadeada = " << contadorCopias << endl;
-    cout << "Numero de IFs para a lista encadeada = " << contadorIf << "\n" << endl;
+    cout << "M(n) da lista encadeada = " << contadorCopias << endl;
+    cout << "C(n) da lista encadeada = " << contadorIf << "\n" << endl;
 }
 
 // Função para remover um elemento da lista encadeada
@@ -267,8 +267,8 @@ void ListaEncadeada::RemoverElemento(int pos) {
             cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido da posicao " << pos << " da lista encadeada\n" << endl;
         }
     }
-    cout << "Numero de copias para a lista encadeada = " << contadorCopias << endl;
-    cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
+    cout << "M(n) da lista sequencial = " << contadorCopias << endl;
+    cout << "C(n) da lista sequencial = " << contadorIf << "\n" << endl;
 }
 
 // Função para encontrar um elemento na lista encadeada com base no RG
@@ -294,8 +294,8 @@ void ListaEncadeada::EncontrarElemento(string &RG) {
     if (!encontrado) {
         cout << "O elemento nao foi encontrado" << endl;
     }
-    cout << "Numero de copias para a lista encadeada = " << contadorCopias << endl;
-    cout << "Numero de IFs para a lista encadeada = " << contadorIf << "\n" << endl;
+    cout << "M(n) da lista encadeada = " << contadorCopias << endl;
+    cout << "C(n) da lista encadeada = " << contadorIf << "\n" << endl;
 }
 
 // Função para imprimir a lista encadeada

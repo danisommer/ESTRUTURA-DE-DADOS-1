@@ -17,9 +17,6 @@
 #include "Dado.h"
 #define N_ARQUIVOS 7
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCDFAInspection"
-
 using namespace std;
 
 /*
@@ -387,5 +384,3 @@ while (opcao != 11 && opcao2 != 9) {
 
     return 1;
 }
-
-#pragma clang diagnostic pop

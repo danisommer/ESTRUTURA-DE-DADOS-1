@@ -188,8 +188,8 @@ void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
         cout << "Elemento " << nome << "," << rg << " inserido na posicao " << pos << " da lista sequencial\n" << endl;
     }
 
-    cout << "Numero de copias para a lista sequencial = " << contadorCopias << endl;
-    cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
+    cout << "M(n) da lista sequencial = " << contadorCopias << endl;
+    cout << "C(n) da lista sequencial = " << contadorIf << "\n" << endl;
 }
 
 // Função para remover um elemento da lista sequencial
@@ -320,8 +320,8 @@ void ListaSequencial::RemoverElemento(int pos) {
     } else {
         cout << "Posicao invalida." << endl;
     }
-    cout << "Numero de copias para a lista sequencial = " << contadorCopias << endl;
-    cout << "Numero de IFs para a lista sequencial = " << contadorIf << "\n" << endl;
+    cout << "M(n) da lista sequencial = " << contadorCopias << endl;
+    cout << "C(n) da lista sequencial = " << contadorIf << "\n" << endl;
 }
 
 // Função para encontrar um elemento na lista sequencial com base no RG
@@ -344,8 +344,8 @@ void ListaSequencial::EncontrarElemento(string &RG) {
     if (!encontrado) {
         cout << "O elemento nao foi encontrado" << endl;
     }
-    cout << "Numero de copias para a lista encadeada = " << contadorCopias << endl;
-    cout << "Numero de IFs para a lista encadeada = " << contadorIf << "\n" << endl;
+    cout << "M(n) da lista sequencial = " << contadorCopias << endl;
+    cout << "C(n) da lista sequencial = " << contadorIf << "\n" << endl;
 }
 
 // Função para imprimir a lista sequencial
