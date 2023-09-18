@@ -200,7 +200,7 @@ void ListaSequencial::RemoverElemento(int pos) {
     // pos = 0 → inicio | pos = -1 → fim | pos = N → qualquer posição
     contadorIf++;
     if (capacidade == 0) {
-        cout << "Lista vazia, não é possível remover." << endl;
+        cout << "Lista vazia, nenhum elemento para remover." << endl;
         return;
     }
     contadorIf++;
