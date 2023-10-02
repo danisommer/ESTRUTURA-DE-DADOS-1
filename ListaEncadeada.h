@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "Dado.h"
 #include <iostream>
+#include "Dado.h"
 
 using namespace std;
 

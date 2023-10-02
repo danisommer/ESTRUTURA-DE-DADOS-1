@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(ESTRUTURA_DE_DADOS main.cpp
         ListaSequencial.cpp
-        ListaEncadeada.cpp)
+        ListaEncadeada.cpp
+        Principal.h
+        Principal.cpp)

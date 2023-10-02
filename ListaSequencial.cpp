@@ -12,6 +12,8 @@
 #include <fstream>
 #include <sstream>
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCDFAInspection"
 using namespace std;
 
 // Construtor da ListaSequencial
@@ -371,3 +373,5 @@ void ListaSequencial::ExportarLista(const string& diretorio, const string& nomeA
     }
     arquivo.close();
 }
+
+#pragma clang diagnostic pop
