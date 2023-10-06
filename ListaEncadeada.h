@@ -9,28 +9,28 @@ using namespace std;
 class ListaEncadeada : public Lista
 {
 private:
-    struct Dado
-    {
-        string nome;
-        string rg;
-    };
+	struct Dado
+	{
+		string nome;
+		string rg;
+	};
 
-    struct Nodo
-    {
-        Dado dado;
-        Nodo* proximo{};
-    };
+	struct Nodo
+	{
+		Dado dado;
+		Nodo* proximo{};
+	};
 
-    Nodo* inicio;
+	Nodo* inicio;
 
 public:
-    ListaEncadeada();
-    ~ListaEncadeada();
-    void PreencherLista(ifstream &arquivo) override;
-    void InserirElemento(int pos, const string& nome, const string& rg) override;
-    void RemoverElemento(int pos) override;
-    void EncontrarElemento(string &RG) override;
-    void ImprimirLista() override;
-    void ExportarLista(const string& diretorio, const string& nomeArquivo) override;
+	ListaEncadeada();
+	~ListaEncadeada();
+	void PreencherLista(ifstream& arquivo) override;
+	void InserirElemento(int pos, const string& nome, const string& rg) override;
+	void RemoverElemento(int pos) override;
+	void EncontrarElemento(string& RG) override;
+	void ImprimirLista() override;
+	void ExportarLista(const string& diretorio, const string& nomeArquivo) override;
 
 };

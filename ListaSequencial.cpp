@@ -20,399 +20,398 @@ ListaSequencial::ListaSequencial() : capacidade(), elementos() {}
 // Destrutor da ListaSequencial
 ListaSequencial::~ListaSequencial()
 {
-    delete[] elementos;
+	delete[] elementos;
 }
 
 // Função para preencher a lista sequencial a partir de um arquivo
-void ListaSequencial::PreencherLista(ifstream &arquivo)
+void ListaSequencial::PreencherLista(ifstream& arquivo)
 {
-    string linha, nome, rgStr;
-    capacidade = 0;
+	string linha, nome, rgStr;
+	capacidade = 0;
 
-    // Conta quantas linhas há no arquivo para determinar a capacidade da lista
-    while (getline(arquivo, linha))
-    {
-        capacidade++;
-    }
+	// Conta quantas linhas há no arquivo para determinar a capacidade da lista
+	while (getline(arquivo, linha))
+	{
+		capacidade++;
+	}
 
-    elementos = new Dado[capacidade]; // Aloca espaço para os elementos da lista
+	elementos = new Dado[capacidade]; // Aloca espaço para os elementos da lista
 
-    // Retorna ao início do arquivo
-    arquivo.clear();
-    arquivo.seekg(0);
+	// Retorna ao início do arquivo
+	arquivo.clear();
+	arquivo.seekg(0);
 
-    // Preenche a lista com os elementos do arquivo
-    for (int i = 0; i < capacidade; i++)
-    {
-        getline(arquivo, linha);
-        stringstream ss(linha);
+	// Preenche a lista com os elementos do arquivo
+	for (int i = 0; i < capacidade; i++)
+	{
+		getline(arquivo, linha);
+		stringstream ss(linha);
 
-        // Lê o nome (parte antes da vírgula) e o RG (parte após a vírgula)
-        getline(ss, nome, ',');
-        getline(ss, rgStr);
+		// Lê o nome (parte antes da vírgula) e o RG (parte após a vírgula)
+		getline(ss, nome, ',');
+		getline(ss, rgStr);
 
-        // Armazena os dados lidos na estrutura Dado na posição atual da lista
-        elementos[i].nome = nome;
-        elementos[i].rg = rgStr;
-    }
+		// Armazena os dados lidos na estrutura Dado na posição atual da lista
+		elementos[i].nome = nome;
+		elementos[i].rg = rgStr;
+	}
 }
 
 // Função para inserir um elemento na lista sequencial
-void ListaSequencial::InserirElemento(int pos, const string &nome, const string &rg)
+void ListaSequencial::InserirElemento(int pos, const string& nome, const string& rg)
 {
-    int contadorCopias = 0;
-    int contadorIf = 0;
+	int contadorCopias = 0;
+	int contadorIf = 0;
 
-    // pos = 0 → inicio | pos = -1 → fim | pos = N → qualquer posição
+	// pos = 0 → inicio | pos = -1 → fim | pos = N → qualquer posição
 
-    contadorIf++;
-    if (pos == 0)
-    {
-        // Inserir no início
+	contadorIf++;
+	if (pos == 0)
+	{
+		// Inserir no início
 
-        // Criar uma cópia dos elementos atuais
-        Dado *copia = new Dado[capacidade];
+		// Criar uma cópia dos elementos atuais
+		Dado* copia = new Dado[capacidade];
 
-        for (int i = 0; i < capacidade; i++)
-        {
-            copia[i].nome = elementos[i].nome;
-            copia[i].rg = elementos[i].rg;
-            contadorCopias+=2;
+		for (int i = 0; i < capacidade; i++)
+		{
+			copia[i].nome = elementos[i].nome;
+			copia[i].rg = elementos[i].rg;
+			contadorCopias += 2;
 
-        }
+		}
 
-        // Liberar memória dos elementos antigos
-        delete[] elementos;
+		// Liberar memória dos elementos antigos
+		delete[] elementos;
 
-        // Incrementar a capacidade
-        capacidade++;
-        elementos = new Dado[capacidade];
+		// Incrementar a capacidade
+		capacidade++;
+		elementos = new Dado[capacidade];
 
-        // Inserir novo elemento no início
-        elementos[0].nome = nome;
-        elementos[0].rg = rg;
+		// Inserir novo elemento no início
+		elementos[0].nome = nome;
+		elementos[0].rg = rg;
 
-        // Copiar os elementos antigos para a nova capacidade
-        for (int j = 0; j < capacidade - 1; j++)
-        {
-            elementos[j + 1].nome = copia[j].nome;
-            elementos[j + 1].rg = copia[j].rg;
-            contadorCopias+=2;
+		// Copiar os elementos antigos para a nova capacidade
+		for (int j = 0; j < capacidade - 1; j++)
+		{
+			elementos[j + 1].nome = copia[j].nome;
+			elementos[j + 1].rg = copia[j].rg;
+			contadorCopias += 2;
 
-        }
+		}
 
-        // Liberar memória da cópia
-        delete[] copia;
+		// Liberar memória da cópia
+		delete[] copia;
 
-        cout << "Elemento " << nome << "," << rg << " inserido no inicio da lista sequencial\n" << endl;
+		cout << "Elemento " << nome << "," << rg << " inserido no inicio da lista sequencial\n" << endl;
 
-    }
-    else if (pos == -1)
-    {
-        contadorIf++;
-        // Inserir no fim
+	}
+	else if (pos == -1)
+	{
+		contadorIf++;
+		// Inserir no fim
 
-        // Criar uma cópia dos elementos atuais
-        Dado *copia = new Dado[capacidade];
+		// Criar uma cópia dos elementos atuais
+		Dado* copia = new Dado[capacidade];
 
-        for (int i = 0; i < capacidade; i++)
-        {
-            copia[i].nome = elementos[i].nome;
-            copia[i].rg = elementos[i].rg;
-            contadorCopias+=2;
+		for (int i = 0; i < capacidade; i++)
+		{
+			copia[i].nome = elementos[i].nome;
+			copia[i].rg = elementos[i].rg;
+			contadorCopias += 2;
 
-        }
+		}
 
-        // Liberar memória dos elementos antigos
-        delete[] elementos;
+		// Liberar memória dos elementos antigos
+		delete[] elementos;
 
-        // Incrementar a capacidade
-        capacidade++;
-        elementos = new Dado[capacidade];
+		// Incrementar a capacidade
+		capacidade++;
+		elementos = new Dado[capacidade];
 
-        // Inserir novo elemento no fim
-        elementos[capacidade - 1].nome = nome;
-        elementos[capacidade - 1].rg = rg;
+		// Inserir novo elemento no fim
+		elementos[capacidade - 1].nome = nome;
+		elementos[capacidade - 1].rg = rg;
 
-        // Copiar os elementos antigos para a nova capacidade
-        for (int j = 0; j < capacidade - 1; j++)
-        {
-            elementos[j].nome = copia[j].nome;
-            elementos[j].rg = copia[j].rg;
-            contadorCopias+=2;
+		// Copiar os elementos antigos para a nova capacidade
+		for (int j = 0; j < capacidade - 1; j++)
+		{
+			elementos[j].nome = copia[j].nome;
+			elementos[j].rg = copia[j].rg;
+			contadorCopias += 2;
 
-        }
+		}
 
-        // Liberar memória da cópia
-        delete[] copia;
+		// Liberar memória da cópia
+		delete[] copia;
+		cout << "Elemento " << nome << "," << rg << " inserido no fim da lista sequencial\n" << endl;
 
-        cout << "Elemento " << nome << "," << rg << " inserido no fim da lista sequencial\n" << endl;
+	}
+	else
+	{
+		contadorIf++;
+		if (pos < 0 || pos > capacidade)
+		{
+			// Verificar se a posição é válida
+			cout << "Posicao invalida." << endl;
+			return;
+		}
 
-    }
-    else
-    {
-        contadorIf++;
-        if (pos < 0 || pos > capacidade)
-        {
-            // Verificar se a posição é válida
-            cout << "Posicao invalida." << endl;
-            return;
-        }
+		// Inserir em qualquer posição
+		Dado* copia = new Dado[capacidade + 1];
 
-        // Inserir em qualquer posição
-        Dado *copia = new Dado[capacidade + 1];
+		// Copiar elementos até a posição pos
+		for (int i = 0; i < pos; i++)
+		{
+			copia[i].nome = elementos[i].nome;
+			copia[i].rg = elementos[i].rg;
+			contadorCopias += 2;
+		}
 
-        // Copiar elementos até a posição pos
-        for (int i = 0; i < pos; i++)
-        {
-            copia[i].nome = elementos[i].nome;
-            copia[i].rg = elementos[i].rg;
-            contadorCopias+=2;
-        }
-
-        // Inserir novo elemento na posição pos
-        copia[pos].nome = nome;
-        copia[pos].rg = rg;
-        contadorCopias+=2;
+		// Inserir novo elemento na posição pos
+		copia[pos].nome = nome;
+		copia[pos].rg = rg;
+		contadorCopias += 2;
 
 
-        // Copiar os elementos restantes para a nova capacidade
-        for (int i = pos; i < capacidade; i++)
-        {
-            copia[i + 1].nome = elementos[i].nome;
-            copia[i + 1].rg = elementos[i].rg;
-            contadorCopias+=2;
+		// Copiar os elementos restantes para a nova capacidade
+		for (int i = pos; i < capacidade; i++)
+		{
+			copia[i + 1].nome = elementos[i].nome;
+			copia[i + 1].rg = elementos[i].rg;
+			contadorCopias += 2;
 
-        }
+		}
 
-        // Liberar memória dos elementos antigos
-        delete[] elementos;
+		// Liberar memória dos elementos antigos
+		delete[] elementos;
 
-        // Incrementar a capacidade
-        capacidade++;
-        elementos = new Dado[capacidade];
+		// Incrementar a capacidade
+		capacidade++;
+		elementos = new Dado[capacidade];
 
-        // Copiar elementos da cópia para a nova capacidade
-        for (int j = 0; j < capacidade; j++)
-        {
-            elementos[j].nome = copia[j].nome;
-            elementos[j].rg = copia[j].rg;
-        }
-        contadorCopias+=2;
+		// Copiar elementos da cópia para a nova capacidade
+		for (int j = 0; j < capacidade; j++)
+		{
+			elementos[j].nome = copia[j].nome;
+			elementos[j].rg = copia[j].rg;
+		}
+		contadorCopias += 2;
 
-        // Liberar memória da cópia
-        delete[] copia;
+		// Liberar memória da cópia
+		delete[] copia;
 
-        cout << "Elemento " << nome << "," << rg << " inserido na posicao " << pos << " da lista sequencial\n" << endl;
-    }
+		cout << "Elemento " << nome << "," << rg << " inserido na posicao " << pos << " da lista sequencial\n" << endl;
+	}
 
-    cout << "C(n) da lista sequencial = " << contadorIf << endl;
-    cout << "M(n) da lista sequencial = " << contadorCopias << "\n" << endl;
+	cout << "C(n) da lista sequencial = " << contadorIf << endl;
+	cout << "M(n) da lista sequencial = " << contadorCopias << "\n" << endl;
 }
 
 // Função para remover um elemento da lista sequencial
 void ListaSequencial::RemoverElemento(int pos)
 {
-    int contadorCopias = 0;
-    int contadorIf = 0;
+	int contadorCopias = 0;
+	int contadorIf = 0;
 
-    // pos = 0 → inicio | pos = -1 → fim | pos = N → qualquer posição
-    contadorIf++;
-    if (capacidade == 0)
-    {
-        cout << "Lista vazia, nenhum elemento para remover." << endl;
-        return;
-    }
-    contadorIf++;
-    if (pos == 0)
-    {
-        // Armazena os dados do elemento que será removido
-        Dado elementoRemovido = elementos[0];
+	// pos = 0 → inicio | pos = -1 → fim | pos = N → qualquer posição
+	contadorIf++;
+	if (capacidade == 0)
+	{
+		cout << "Lista vazia, nenhum elemento para remover." << endl;
+		return;
+	}
+	contadorIf++;
+	if (pos == 0)
+	{
+		// Armazena os dados do elemento que será removido
+		Dado elementoRemovido = elementos[0];
 
-        // Remover do início
+		// Remover do início
 
-        // Criar uma cópia dos elementos após a remoção
-        Dado *copia = new Dado[capacidade - 1];
+		// Criar uma cópia dos elementos após a remoção
+		Dado* copia = new Dado[capacidade - 1];
 
-        // Copiar os elementos após o primeiro
-        for (int i = 1; i < capacidade; i++)
-        {
-            copia[i - 1].nome = elementos[i].nome;
-            copia[i - 1].rg = elementos[i].rg;
-            contadorCopias+=2;
-        }
+		// Copiar os elementos após o primeiro
+		for (int i = 1; i < capacidade; i++)
+		{
+			copia[i - 1].nome = elementos[i].nome;
+			copia[i - 1].rg = elementos[i].rg;
+			contadorCopias += 2;
+		}
 
-        // Liberar memória dos elementos antigos
-        delete[] elementos;
+		// Liberar memória dos elementos antigos
+		delete[] elementos;
 
-        // Atualizar a capacidade
-        capacidade--;
-        elementos = new Dado[capacidade];
+		// Atualizar a capacidade
+		capacidade--;
+		elementos = new Dado[capacidade];
 
-        // Copiar elementos da cópia para a nova capacidade
-        for (int j = 0; j < capacidade; j++)
-        {
-            elementos[j].nome = copia[j].nome;
-            elementos[j].rg = copia[j].rg;
-            contadorCopias+=2;
-        }
+		// Copiar elementos da cópia para a nova capacidade
+		for (int j = 0; j < capacidade; j++)
+		{
+			elementos[j].nome = copia[j].nome;
+			elementos[j].rg = copia[j].rg;
+			contadorCopias += 2;
+		}
 
-        // Liberar memória da cópia
-        delete[] copia;
+		// Liberar memória da cópia
+		delete[] copia;
 
-        // Imprimir o elemento removido
-        cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do inicio da lista sequencial\n" << endl;
+		// Imprimir o elemento removido
+		cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do inicio da lista sequencial\n" << endl;
 
-    }
-    else if (pos == -1)
-    {
-        contadorIf++;
-        // Armazena os dados do elemento que será removido
-        Dado elementoRemovido = elementos[capacidade - 1];
+	}
+	else if (pos == -1)
+	{
+		contadorIf++;
+		// Armazena os dados do elemento que será removido
+		Dado elementoRemovido = elementos[capacidade - 1];
 
-        // Criar uma cópia dos elementos antes da remoção
-        Dado *copia = new Dado[capacidade - 1];
+		// Criar uma cópia dos elementos antes da remoção
+		Dado* copia = new Dado[capacidade - 1];
 
-        // Copiar os elementos antes do último
-        for (int i = 0; i < capacidade - 1; i++)
-        {
-            copia[i].nome = elementos[i].nome;
-            copia[i].rg = elementos[i].rg;
-            contadorCopias+=2;
-        }
+		// Copiar os elementos antes do último
+		for (int i = 0; i < capacidade - 1; i++)
+		{
+			copia[i].nome = elementos[i].nome;
+			copia[i].rg = elementos[i].rg;
+			contadorCopias += 2;
+		}
 
-        // Liberar memória dos elementos antigos
-        delete[] elementos;
+		// Liberar memória dos elementos antigos
+		delete[] elementos;
 
-        // Atualizar a capacidade
-        capacidade--;
-        elementos = new Dado[capacidade];
+		// Atualizar a capacidade
+		capacidade--;
+		elementos = new Dado[capacidade];
 
-        // Copiar elementos da cópia para a nova capacidade
-        for (int j = 0; j < capacidade; j++)
-        {
-            elementos[j].nome = copia[j].nome;
-            elementos[j].rg = copia[j].rg;
-            contadorCopias+=2;
-        }
+		// Copiar elementos da cópia para a nova capacidade
+		for (int j = 0; j < capacidade; j++)
+		{
+			elementos[j].nome = copia[j].nome;
+			elementos[j].rg = copia[j].rg;
+			contadorCopias += 2;
+		}
 
-        // Liberar memória da cópia
-        delete[] copia;
+		// Liberar memória da cópia
+		delete[] copia;
 
-        // Imprimir o elemento removido
-        cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do fim da lista sequencial\n" << endl;
+		// Imprimir o elemento removido
+		cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido do fim da lista sequencial\n" << endl;
 
-    }
-    else if (pos > 0 && pos < capacidade)
-    {
-        contadorIf++;
-        // Armazena os dados do elemento que será removido
-        Dado elementoRemovido = elementos[pos];
+	}
+	else if (pos > 0 && pos < capacidade)
+	{
+		contadorIf++;
+		// Armazena os dados do elemento que será removido
+		Dado elementoRemovido = elementos[pos];
 
-        // Criar uma cópia dos elementos após a remoção
-        Dado *copia = new Dado[capacidade - 1];
+		// Criar uma cópia dos elementos após a remoção
+		Dado* copia = new Dado[capacidade - 1];
 
-        // Copiar os elementos antes da posição e após a posição
-        for (int i = 0; i < pos; i++)
-        {
-            copia[i].nome = elementos[i].nome;
-            copia[i].rg = elementos[i].rg;
-            contadorCopias+=2;
+		// Copiar os elementos antes da posição e após a posição
+		for (int i = 0; i < pos; i++)
+		{
+			copia[i].nome = elementos[i].nome;
+			copia[i].rg = elementos[i].rg;
+			contadorCopias += 2;
 
-        }
+		}
 
-        for (int i = pos + 1; i < capacidade; i++)
-        {
-            copia[i - 1].nome = elementos[i].nome;
-            copia[i - 1].rg = elementos[i].rg;
-            contadorCopias+=2;
-        }
+		for (int i = pos + 1; i < capacidade; i++)
+		{
+			copia[i - 1].nome = elementos[i].nome;
+			copia[i - 1].rg = elementos[i].rg;
+			contadorCopias += 2;
+		}
 
-        // Liberar memória dos elementos antigos
-        delete[] elementos;
+		// Liberar memória dos elementos antigos
+		delete[] elementos;
 
-        // Atualizar a capacidade
-        capacidade--;
-        elementos = new Dado[capacidade];
+		// Atualizar a capacidade
+		capacidade--;
+		elementos = new Dado[capacidade];
 
-        // Copiar elementos da cópia para a nova capacidade
-        for (int j = 0; j < capacidade; j++)
-        {
-            elementos[j].nome = copia[j].nome;
-            elementos[j].rg = copia[j].rg;
-            contadorCopias+=2;
-        }
+		// Copiar elementos da cópia para a nova capacidade
+		for (int j = 0; j < capacidade; j++)
+		{
+			elementos[j].nome = copia[j].nome;
+			elementos[j].rg = copia[j].rg;
+			contadorCopias += 2;
+		}
 
-        // Liberar memória da cópia
-        delete[] copia;
+		// Liberar memória da cópia
+		delete[] copia;
 
-        // Imprimir o elemento removido
-        cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido da posicao " << pos << " da lista sequencial\n" << endl;
+		// Imprimir o elemento removido
+		cout << "Elemento " << elementoRemovido.nome << "," << elementoRemovido.rg << " removido da posicao " << pos << " da lista sequencial\n" << endl;
 
-    }
-    else
-    {
-        cout << "Posicao invalida." << endl;
-    }
+	}
+	else
+	{
+		cout << "Posicao invalida." << endl;
+	}
 
-    cout << "C(n) da lista sequencial = " << contadorIf << endl;
-    cout << "M(n) da lista sequencial = " << contadorCopias << "\n" << endl;
+	cout << "C(n) da lista sequencial = " << contadorIf << endl;
+	cout << "M(n) da lista sequencial = " << contadorCopias << "\n" << endl;
 }
 
 // Função para encontrar um elemento na lista sequencial com base no RG
-void ListaSequencial::EncontrarElemento(string &RG)
+void ListaSequencial::EncontrarElemento(string& RG)
 {
-    int posicao = 0;
-    int contadorIf = 0;
-    int contadorCopias = 0;
-    bool encontrado = false;
+	int posicao = 0;
+	int contadorIf = 0;
+	int contadorCopias = 0;
+	bool encontrado = false;
 
-    for (int i = 0; i < capacidade; i++)
-    {
-        contadorIf++;
-        if (elementos[i].rg == RG)
-        {
-            cout << "O elemento " << elementos[i].nome << "," << elementos[i].rg << " se encontra na posicao " << i << "\n" << endl;
-            encontrado = true;
-            break; // Elemento encontrado, podemos sair do loop
-        }
-        posicao++;
-    }
-    contadorIf++;
-    if (!encontrado)
-    {
-        cout << "O elemento nao foi encontrado" << endl;
-    }
+	for (int i = 0; i < capacidade; i++)
+	{
+		contadorIf++;
+		if (elementos[i].rg == RG)
+		{
+			cout << "O elemento " << elementos[i].nome << "," << elementos[i].rg << " se encontra na posicao " << i << "\n" << endl;
+			encontrado = true;
+			break; // Elemento encontrado, podemos sair do loop
+		}
+		posicao++;
+	}
+	contadorIf++;
+	if (!encontrado)
+	{
+		cout << "O elemento nao foi encontrado" << endl;
+	}
 
-    cout << "C(n) da lista sequencial = " << contadorIf  << endl;
-    cout << "M(n) da lista sequencial = " << contadorCopias << "\n" << endl;
+	cout << "C(n) da lista sequencial = " << contadorIf << endl;
+	cout << "M(n) da lista sequencial = " << contadorCopias << "\n" << endl;
 }
 
 // Função para imprimir a lista sequencial
 void ListaSequencial::ImprimirLista()
 {
-    cout << "\nLISTA SEQUENCIAL:\n" << endl;
+	cout << "\nLISTA SEQUENCIAL:\n" << endl;
 
-    for (int i = 0; i < capacidade; i++)
-    {
-        cout << i << ") Nome: " << elementos[i].nome << " | RG: " << elementos[i].rg << endl;
-    }
+	for (int i = 0; i < capacidade; i++)
+	{
+		cout << i << ") Nome: " << elementos[i].nome << " | RG: " << elementos[i].rg << endl;
+	}
 }
 
 // Função para exportar a lista sequencial para um arquivo
 void ListaSequencial::ExportarLista(const string& diretorio, const string& nomeArquivo)
 {
-    ofstream arquivo(diretorio + nomeArquivo);
+	ofstream arquivo(diretorio + nomeArquivo);
 
-    if (!arquivo.is_open())
-    {
-        cout << "Não foi possível abrir o arquivo." << endl;
-        return;
-    }
+	if (!arquivo.is_open())
+	{
+		cout << "Não foi possível abrir o arquivo." << endl;
+		return;
+	}
 
-    for (int i = 0; i < capacidade; i++)
-    {
-        arquivo << elementos[i].nome << "," << elementos[i].rg << endl;
-    }
-    arquivo.close();
+	for (int i = 0; i < capacidade; i++)
+	{
+		arquivo << elementos[i].nome << "," << elementos[i].rg << endl;
+	}
+	arquivo.close();
 }
