@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -7,16 +8,15 @@
 #include <windows.h>
 #include "ListaEncadeada.h"
 #include "ListaSequencial.h"
-#include "Dado.h"
 
 class Principal {
 private:
-    clock_t inicioSeq, fimSeq, inicioEnc, fimEnc;
-    string nome, nomeEscolhido, RGEscolhido, linha, RG, nomeArquivoSec,nomeArquivoEnc;
-    string diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/";
     ListaSequencial listaSeq;
     ListaEncadeada listaEnc;
     int opcao, opcao2, N, op, contadorTXT;
+    clock_t inicioSeq, fimSeq, inicioEnc, fimEnc;
+    string nome, nomeEscolhido, RGEscolhido, linha, RG, nomeArquivoSec,nomeArquivoEnc;
+    string diretorio;
     ifstream arquivo;
 
 public:

@@ -7,4 +7,5 @@ add_executable(ESTRUTURA_DE_DADOS main.cpp
         ListaSequencial.cpp
         ListaEncadeada.cpp
         Principal.h
-        Principal.cpp)
+        Principal.cpp
+        Lista.h)

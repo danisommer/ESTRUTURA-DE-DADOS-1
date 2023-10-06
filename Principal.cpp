@@ -5,19 +5,18 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*============================================================================*/
-
+#define N_ARQUIVOS 7
 #include <iostream>
 #include <string>
 #include <ctime>
 #include <iomanip>
 #include <windows.h>
 #include "Principal.h"
-#define N_ARQUIVOS 7
 
 using namespace std;
 
-Principal::Principal() : inicioSeq(), fimSeq(), inicioEnc(0), fimEnc(0), N(0), op(0), contadorTXT(), opcao(-1), opcao2(-1) {
-    Executar();
+Principal::Principal() : inicioSeq(), fimSeq(), inicioEnc(), fimEnc(), N(), op(), contadorTXT(0), opcao(-1), opcao2(-1) {
+    diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/";
 }
 
 Principal::~Principal() = default;

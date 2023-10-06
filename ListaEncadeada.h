@@ -2,27 +2,32 @@
 
 #include <string>
 #include <iostream>
-#include "Dado.h"
+#include "Lista.h"
 
 using namespace std;
 
-struct Nodo {
-    Dado dado;
-    Nodo* proximo{};
-};
-
-class ListaEncadeada {
+class ListaEncadeada : public Lista {
 private:
+    struct Dado {
+        string nome;
+        string rg;
+    };
+
+    struct Nodo {
+        Dado dado;
+        Nodo* proximo{};
+    };
+
     Nodo* inicio;
 
 public:
     ListaEncadeada();
     ~ListaEncadeada();
-    void PreencherLista(ifstream &arquivo);
-    void InserirElemento(int pos, const string& nome, const string& rg);
-    void RemoverElemento(int pos);
-    void EncontrarElemento(string &RG);
-    void ImprimirLista();
-    void ExportarLista(const string& diretorio, const string& nomeArquivo);
+    void PreencherLista(ifstream &arquivo) override;
+    void InserirElemento(int pos, const string& nome, const string& rg) override;
+    void RemoverElemento(int pos) override;
+    void EncontrarElemento(string &RG) override;
+    void ImprimirLista() override;
+    void ExportarLista(const string& diretorio, const string& nomeArquivo) override;
 
 };

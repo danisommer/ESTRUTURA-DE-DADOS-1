@@ -12,12 +12,10 @@
 #include <fstream>
 #include <sstream>
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCDFAInspection"
 using namespace std;
 
 // Construtor da ListaSequencial
-ListaSequencial::ListaSequencial() : capacidade() {}
+ListaSequencial::ListaSequencial() : capacidade(), elementos() {}
 
 // Destrutor da ListaSequencial
 ListaSequencial::~ListaSequencial() {
@@ -56,7 +54,7 @@ void ListaSequencial::PreencherLista(ifstream &arquivo) {
 }
 
 // Função para inserir um elemento na lista sequencial
-void ListaSequencial::InserirElemento(int pos, string &nome, string &rg) {
+void ListaSequencial::InserirElemento(int pos, const string &nome, const string &rg) {
     int contadorCopias = 0;
     int contadorIf = 0;
 
@@ -373,5 +371,3 @@ void ListaSequencial::ExportarLista(const string& diretorio, const string& nomeA
     }
     arquivo.close();
 }
-
-#pragma clang diagnostic pop

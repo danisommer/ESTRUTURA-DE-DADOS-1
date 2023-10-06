@@ -12,6 +12,7 @@ using namespace std;
 
 int main (){
     Principal principal;
+    principal.Executar();
     return 0;
 
 }

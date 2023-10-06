@@ -1,22 +1,27 @@
 #pragma once
 
 #include <string>
-#include "Dado.h"
+#include "Lista.h"
 
 using namespace std;
 
-class ListaSequencial {
+class ListaSequencial : public Lista {
 private:
-    Dado* elementos{};
+    struct Dado {
+        string nome;
+        string rg;
+    };
+
+    Dado* elementos;
     int capacidade;
 
 public:
     ListaSequencial();
     ~ListaSequencial();
-    void PreencherLista(ifstream &arquivo);
-    void InserirElemento(int pos, string &nome, string &rg);
-    void RemoverElemento(int pos);
-    void EncontrarElemento(string &RG);
-    void ImprimirLista();
-    void ExportarLista(const string& diretorio, const string& nomeArquivo);
+    void PreencherLista(ifstream &arquivo) override;
+    void InserirElemento(int pos, const string &nome, const string &rg) override;
+    void RemoverElemento(int pos) override;
+    void EncontrarElemento(string &RG) override;
+    void ImprimirLista() override;
+    void ExportarLista(const string& diretorio, const string& nomeArquivo) override;
 };
