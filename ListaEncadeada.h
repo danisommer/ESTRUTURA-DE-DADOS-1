@@ -6,14 +6,17 @@
 
 using namespace std;
 
-class ListaEncadeada : public Lista {
+class ListaEncadeada : public Lista
+{
 private:
-    struct Dado {
+    struct Dado
+    {
         string nome;
         string rg;
     };
 
-    struct Nodo {
+    struct Nodo
+    {
         Dado dado;
         Nodo* proximo{};
     };

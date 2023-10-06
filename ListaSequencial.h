@@ -5,9 +5,11 @@
 
 using namespace std;
 
-class ListaSequencial : public Lista {
+class ListaSequencial : public Lista
+{
 private:
-    struct Dado {
+    struct Dado
+    {
         string nome;
         string rg;
     };

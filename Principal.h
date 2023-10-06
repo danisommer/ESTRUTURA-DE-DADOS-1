@@ -9,7 +9,8 @@
 #include "ListaEncadeada.h"
 #include "ListaSequencial.h"
 
-class Principal {
+class Principal
+{
 private:
     ListaSequencial listaSeq;
     ListaEncadeada listaEnc;
