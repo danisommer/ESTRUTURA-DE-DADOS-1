@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Dado.h" />
+		<Unit filename="Lista.h" />
 		<Unit filename="ListaEncadeada.cpp" />
 		<Unit filename="ListaEncadeada.h" />
 		<Unit filename="ListaSequencial.cpp" />
@@ -43,6 +43,8 @@
 		<Unit filename="NomeRG1K.txt" />
 		<Unit filename="NomeRG1M.txt" />
 		<Unit filename="NomeRG50.txt" />
+		<Unit filename="Principal.cpp" />
+		<Unit filename="Principal.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
