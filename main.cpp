@@ -12,6 +12,6 @@ using namespace std;
 
 int main()
 {
-    Principal principal;
-    return 0;
+	Principal principal;
+	return 0;
 }
