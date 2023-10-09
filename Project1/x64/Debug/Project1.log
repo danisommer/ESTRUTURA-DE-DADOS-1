@@ -1,0 +1,9 @@
+﻿  ListaEncadeada.cpp
+  ListaSequencial.cpp
+  main.cpp
+  Principal.cpp
+C:\Users\fabri\Downloads\Programacao\ESTRUTURA-DE-DADOS\Principal.cpp(107,17): error C2664: 'HANDLE FindFirstFileW(LPCWSTR,LPWIN32_FIND_DATAW)': não é possível converter um argumento 1 de 'const char [73]' em 'LPCWSTR'
+C:\Users\fabri\Downloads\Programacao\ESTRUTURA-DE-DADOS\Principal.cpp(107,31): message : Tipos apontados não são relacionados; conversão requer reinterpret_cast, conversão C-style ou conversão function-style entre parênteses
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\fileapi.h(248,1): message : consulte a declaração de 'FindFirstFileW'
+C:\Users\fabri\Downloads\Programacao\ESTRUTURA-DE-DADOS\Principal.cpp(107,17): message : ao tentar corresponder a lista de argumentos '(const char [73], WIN32_FIND_DATA *)'
+  Gerando Código...
