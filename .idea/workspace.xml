@@ -21,35 +21,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e3db762-d116-4596-b2e3-68bd8b0efe0e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Project1/.vs/Project1/FileContentIndex/2962fd78-1d83-4389-9c4d-4d7e2d155ba1.vsidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/.vs/Project1/FileContentIndex/e8301e75-997b-478b-84a6-10a853ea3f79.vsidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/.vs/Project1/v17/.suo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/.vs/Project1/v17/Browse.VC.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/.vs/Project1/v17/ipch/AutoPCH/5647c41ce03e0f80/LISTASEQUENCIAL.ipch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/.vs/Project1/v17/ipch/AutoPCH/8e5b8048ab8d782e/LISTAENCADEADA.ipch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/.vs/Project1/v17/ipch/AutoPCH/b460e70a7bf8ab7a/MAIN.ipch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Project1.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Project1.vcxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Project1.vcxproj.filters" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Project1.vcxproj.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/ListaEncadeada.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/ListaSequencial.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/Project1.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/Project1.tlog/CL.command.1.tlog" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/Project1.tlog/Project1.lastbuildstate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/Project1.tlog/unsuccessfulbuild" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/main.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/vc143.idb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/x64/Debug/vc143.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED1.layout" beforeDir="false" afterPath="$PROJECT_DIR$/ED1.layout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lista.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lista.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ListaEncadeada.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ListaEncadeada.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaEncadeada.h" beforeDir="false" afterPath="$PROJECT_DIR$/ListaEncadeada.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ListaSequencial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ListaSequencial.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaSequencial.h" beforeDir="false" afterPath="$PROJECT_DIR$/ListaSequencial.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Principal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Principal.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Principal.h" beforeDir="false" afterPath="$PROJECT_DIR$/Principal.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/ListaEncadeada.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir/ListaEncadeada.cpp.obj" afterDir="false" />
@@ -105,6 +80,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -168,7 +144,9 @@
       <workItem from="1696711797696" duration="90000" />
       <workItem from="1696730321951" duration="813000" />
       <workItem from="1696773939866" duration="16750000" />
-      <workItem from="1696869134053" duration="1175000" />
+      <workItem from="1696869134053" duration="3344000" />
+      <workItem from="1696877440920" duration="912000" />
+      <workItem from="1696881776715" duration="1844000" />
     </task>
     <servers />
   </component>

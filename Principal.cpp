@@ -5,6 +5,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*============================================================================*/
+
 #define N_ARQUIVOS 7
 #include <iostream>
 #include <string>
@@ -61,13 +62,10 @@ void Principal::mostraDados()
 
 void Principal::mostraDadosSeq()
 {
-
     cout << "\nLISTA SEQUENCIAL:" << endl;
     calculaTempoExec(inicioSeq, fimSeq);
     cout << "C(n) = " << listaSeq.getIFs() << endl;
     cout << "M(n) = " << listaSeq.getCopias() << "\n" << endl;
-
-    pausarExecucao();
 }
 
 void Principal::getArquivo()
@@ -323,7 +321,7 @@ void Principal::Executar()
             case 7:
                 cout << "Escolha uma forma de procurar o elemento:\n"
                      << "(1) Busca sequencial\n"
-                     << "(2) Busca binaria.\n";
+                     << "(2) Busca binaria\n";
                 cin >> op;
 
                 switch (op)
@@ -362,6 +360,8 @@ void Principal::Executar()
                     fimSeq = clock();
 
                     mostraDadosSeq();
+
+                    pausarExecucao();
                     break;
                 default:
                     cout << "Escolha uma das duas opcoes" << endl;
@@ -370,12 +370,12 @@ void Principal::Executar()
 
             case 8:
                 cout << "Selecione o metodo de ordenacao:\n"
-                     << "1) Selection Sort\n"
+                     << "1) Selection-Sort\n"
                      << "2) Insertion-Sort\n"
                      << "3) Bubble-Sort\n"
                      << "4) Shell-Sort\n"
                      << "5) Quick-Sort\n"
-                     << "6) Merge Sort\n";
+                     << "6) Merge-Sort\n";
                 cin >> op;
 
                 inicioSeq = clock();
@@ -384,13 +384,14 @@ void Principal::Executar()
 
                 mostraDadosSeq();
 
-                cout << "Quer ver a lista ordenada? \n(1) SIM \n(2) NÃO" << endl;
+                cout << "Quer ver a lista ordenada? \n(1) SIM \n(2) NAO" << endl;
                 cin >> op;
 
                 switch(op)
                 {
                 case 1:
                     listaSeq.ImprimirLista(); // Mostrar a lista sequencial completa
+                    pausarExecucao();
                     break;
                 default:
                     continue;
@@ -491,4 +492,3 @@ void Principal::Executar()
         }
     }
 }
-

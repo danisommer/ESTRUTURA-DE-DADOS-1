@@ -188,9 +188,9 @@ void ListaSequencial::EncontrarElementoBinaria(string& RG)
 
     while (esquerda <= direita)
     {
-        contadorIf++;
         int meio = esquerda + (direita - esquerda) / 2;
 
+        contadorIf++;
         if (elementos[meio].rg == RG)
         {
             cout << "O elemento " << elementos[meio].nome << "," << elementos[meio].rg << " se encontra na posicao " << meio - 1 << "\n" << endl;
@@ -207,7 +207,7 @@ void ListaSequencial::EncontrarElementoBinaria(string& RG)
             direita = meio - 1;
         }
     }
-
+    contadorIf++;
     if (!encontrado)
     {
         cout << "O elemento nao foi encontrado" << endl;
@@ -217,6 +217,9 @@ void ListaSequencial::EncontrarElementoBinaria(string& RG)
 // Função para selecionar o metodo de ordenação da lista
 void ListaSequencial::OrdenarListaPorRG(int op)
 {
+    contadorIf = 0;
+    contadorCop = 0;
+
     switch (op)
     {
     case 1:
@@ -273,23 +276,21 @@ void ListaSequencial::SelectionSort()
 
 void ListaSequencial::InsertionSort()
 {
-    contadorIf = 0;
-    contadorCop = 0;
-
     for (int i = 1; i < capacidade; i++)
     {
         Dado chave = elementos[i];
+        contadorCop++;
         int j = i - 1;
 
         // Mova os elementos da lista[0.i-1] que são maiores do que a chave
         // para uma posição à frente de sua posição atual
         while (j >= 0 && elementos[j].rg > chave.rg)
         {
-            contadorIf++;
             elementos[j + 1] = elementos[j];
             j = j - 1;
             contadorCop++;
         }
+        contadorCop++;
         elementos[j + 1] = chave;
     }
     ordenada = true;
@@ -297,9 +298,6 @@ void ListaSequencial::InsertionSort()
 
 void ListaSequencial::BubbleSort()
 {
-    contadorIf = 0;
-    contadorCop = 0;
-
     int n = capacidade;
     bool troca; // Variável para verificar se ocorreu alguma troca em uma passagem
 
@@ -325,10 +323,7 @@ void ListaSequencial::BubbleSort()
 
 void ListaSequencial::ShellSort()
 {
-    contadorIf = 0;
-    contadorCop = 0;
-
-    int n = capacidade;
+  int n = capacidade;
     int h = 1;
 
     // Define os intervalos (gaps) iniciais usando a sequência de Knuth
@@ -342,18 +337,18 @@ void ListaSequencial::ShellSort()
         // Aplica o Insertion Sort com intervalo h
         for (int i = h; i < n; i++)
         {
+            contadorCop++;
             Dado chave = elementos[i];
             int j = i;
 
             // Move os elementos que são maiores que a chave para a frente do array
             while (j >= h && elementos[j - h].rg > chave.rg)
             {
-                contadorIf++;
                 elementos[j] = elementos[j - h];
                 j -= h;
                 contadorCop++;
             }
-
+            contadorCop++;
             elementos[j] = chave;
         }
 
@@ -365,11 +360,10 @@ void ListaSequencial::ShellSort()
 
 void ListaSequencial::QuickSort(int baixo, int alto)
 {
-    contadorIf = 0;
-    contadorCop = 0;
-
+    contadorIf++;
     if (baixo < alto)
     {
+        contadorCop++;
         Dado pivo = elementos[alto];
         int i = baixo - 1;
 
@@ -397,9 +391,6 @@ void ListaSequencial::QuickSort(int baixo, int alto)
 
 void ListaSequencial::MergeSort(int baixo, int alto)
 {
-    contadorIf = 0;
-    contadorCop = 0;
-
     if (baixo < alto)
     {
         int meio = baixo + (alto - baixo) / 2;
@@ -417,10 +408,12 @@ void ListaSequencial::MergeSort(int baixo, int alto)
 
         for (int i = 0; i < n1; i++)
         {
+            contadorCop++;
             subListaEsquerda[i] = elementos[baixo + i];
         }
         for (int j = 0; j < n2; j++)
         {
+            contadorCop++;
             subListaDireita[j] = elementos[meio + 1 + j];
         }
 
@@ -433,15 +426,16 @@ void ListaSequencial::MergeSort(int baixo, int alto)
             contadorIf++;
             if (subListaEsquerda[i].rg <= subListaDireita[j].rg)
             {
+                contadorCop++;
                 elementos[k] = subListaEsquerda[i];
                 i++;
             }
             else
             {
+                contadorCop++;
                 elementos[k] = subListaDireita[j];
                 j++;
             }
-            contadorCop++;
             k++;
         }
 
