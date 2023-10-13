@@ -1,3 +1,0 @@
-C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/cmake-build-debug/CMakeFiles/ESTRUTURA_DE_DADOS.dir
-C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
