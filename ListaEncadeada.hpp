@@ -1,11 +1,12 @@
 #pragma once
 
 #include <string>
-#include "Lista.h"
+#include <iostream>
+#include "Lista.hpp"
 
 using namespace std;
 
-class ListaSequencial : public Lista
+class ListaEncadeada : public Lista
 {
 private:
     struct Dado
@@ -14,32 +15,32 @@ private:
         string rg;
     };
 
-    Dado* elementos;
+    struct Node
+    {
+        Dado dado;
+        Node* proximo{};
+        Node* anterior{};
+    };
+
+    Node* inicio;
+    Node* final;
     int capacidade;
     int contadorIf;
     int contadorCop;
-    bool ordenada;
 
 public:
-    ListaSequencial();
-    ~ListaSequencial();
-    int getSize(ifstream& arquivo);
+    ListaEncadeada();
+    ~ListaEncadeada();
     int getIFs() const;
     int getCopias() const;
-    bool getOrdenada() const;
-    Dado getElemento(int n);
     void PreencherLista(ifstream& arquivo) override;
+    void InsertFront(const string& nome, const string& rg);
+    void InsertBack(const string& nome, const string& rg);
     void Insert(int pos, const string& nome, const string& rg) override;
+    void RemoveFront();
+    void RemoveBack();
     void Remove(int pos) override;
     void EncontrarElementoSequencial(string& RG) override;
-    void EncontrarElementoBinaria(string& RG);
-    void OrdenarListaPorRG(int op);
-    void SelectionSort();
-    void InsertionSort();
-    void BubbleSort();
-    void ShellSort();
-    void QuickSort(int baixo, int alto);
-    void MergeSort(int baixo, int alto);
     void ImprimirLista() override;
     void ExportarLista(const string& diretorio, const string& nomeArquivo) override;
     void LimparLista() override;

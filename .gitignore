@@ -49,13 +49,8 @@ JOGO.vcxproj
 *.ilk
 x64/Debug/JOGO.vcxproj.FileListAbsolute.txt
 *.recipe
-*.obj
-*.obj
 cmake-build-debug/.ninja_log
 cmake-build-debug/.ninja_deps
 *.xml
+
 *.xml
-cmake-build-debug/.ninja_deps
-cmake-build-debug/.ninja_log
-*.obj
-*.obj

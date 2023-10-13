@@ -8,4 +8,5 @@ add_executable(ESTRUTURA_DE_DADOS main.cpp
         ListaEncadeada.cpp
         Principal.h
         Principal.cpp
-        Lista.h)
+        Lista.h
+        Lista.hpp)

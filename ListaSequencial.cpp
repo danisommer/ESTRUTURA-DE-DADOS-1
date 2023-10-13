@@ -6,7 +6,7 @@
 /*                                                                            */
 /*============================================================================*/
 
-#include "ListaSequencial.h"
+#include "ListaSequencial.hpp"
 #include <iostream>
 #include <string>
 #include <fstream>

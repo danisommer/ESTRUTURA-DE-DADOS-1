@@ -12,7 +12,7 @@
 #include <ctime>
 #include <iomanip>
 #include <windows.h>
-#include "Principal.h"
+#include "Principal.hpp"
 
 using namespace std;
 

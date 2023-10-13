@@ -6,8 +6,8 @@
 #include <ctime>
 #include <iomanip>
 #include <windows.h>
-#include "ListaEncadeada.h"
-#include "ListaSequencial.h"
+#include "ListaEncadeada.hpp"
+#include "ListaSequencial.hpp"
 
 class Principal
 {
