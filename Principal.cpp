@@ -30,7 +30,6 @@ int Principal::opcao2 = -1;
 Principal::Principal() : N(), op(), contadorTXT(0)
 {
     diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/";
-    Executar();
 }
 
 Principal::~Principal() = default;

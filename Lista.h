@@ -7,7 +7,7 @@ using namespace std;
 
 class Lista
 {
-public:
+private:
     virtual void PreencherLista(ifstream& arquivo) = 0;
     virtual void Insert(int pos, const string& nome, const string& rg) = 0;
     virtual void Remove(int pos) = 0;

@@ -180,8 +180,6 @@ void ListaSequencial::EncontrarElementoBinaria(string& RG)
     contadorCop = 0;
 
     // Primeiro, ordenar a lista com base no campo RG
-
-
     int esquerda = 0;
     int direita = capacidade - 1;
     bool encontrado = false;
@@ -248,9 +246,6 @@ void ListaSequencial::OrdenarListaPorRG(int op)
 // Métodos de ordenação
 void ListaSequencial::SelectionSort()
 {
-    contadorIf = 0;
-    contadorCop = 0;
-
     for (int i = 0; i < capacidade - 1; i++)
     {
         // Encontre o índice do elemento mínimo na parte não ordenada da lista
@@ -391,6 +386,7 @@ void ListaSequencial::QuickSort(int baixo, int alto)
 
 void ListaSequencial::MergeSort(int baixo, int alto)
 {
+    contadorIf++;
     if (baixo < alto)
     {
         int meio = baixo + (alto - baixo) / 2;
