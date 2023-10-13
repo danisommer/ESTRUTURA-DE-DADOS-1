@@ -30,15 +30,6 @@
 *.exe
 *.out
 *.app
-JOGO.vcxproj.user
-JOGO.vcxproj.filters
-.vs/JOGO/v17/Browse.VC.db
-.vs/JOGO/v17/.suo
-.vs/JOGO/FileContentIndex/4859a0c6-331e-4b48-b5d3-4a93bf23ec05.vsidx
-.vs/JOGO/FileContentIndex/21bbcf5d-8409-4ddc-9529-5368b183828e.vsidx
-JOGO.vcxproj
-.vs/JOGO/v17/Browse.VC.db-wal
-.vs/JOGO/v17/Browse.VC.db-shm
 *.opendb
 *.vsidx
 *.ipch
@@ -47,10 +38,7 @@ JOGO.vcxproj
 *.log
 *.idb
 *.ilk
-x64/Debug/JOGO.vcxproj.FileListAbsolute.txt
 *.recipe
 cmake-build-debug/.ninja_log
 cmake-build-debug/.ninja_deps
-*.xml
-
 *.xml
