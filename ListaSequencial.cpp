@@ -93,14 +93,16 @@ void ListaSequencial::PreencherLista(ifstream& arquivo)
         getline(ss, nome, ',');
         getline(ss, rgStr);
 
+        int rg = std::stoi(rgStr);
+
         // Armazena os dados lidos na estrutura Dado na posição atual da lista
         elementos[i].nome = nome;
-        elementos[i].rg = rgStr;
+        elementos[i].rg = rg;
     }
 }
 
 // Função para inserir um elemento em qualquer posição da lista sequencial
-void ListaSequencial::Insert(int pos, const string& nome, const string& rg)
+void ListaSequencial::Insert(int pos, const string& nome, const int& rg)
 {
     contadorIf = 0;
     contadorCop = 0;
@@ -116,9 +118,8 @@ void ListaSequencial::Insert(int pos, const string& nome, const string& rg)
 
     for (int i = capacidade; i >= pos; i--)
     {
-        elementos[i + 1].rg = elementos[i].rg;
-        elementos[i + 1].nome = elementos[i].nome;
-        contadorCop += 2;
+        elementos[i + 1] = elementos[i];
+        contadorCop ++;
     }
 
     elementos[pos].rg = rg;
@@ -139,15 +140,14 @@ void ListaSequencial::Remove(int pos)
 
     for (int i = pos; i < capacidade; i++)
     {
-        elementos[i].rg = elementos[i + 1].rg;
-        elementos[i].nome = elementos[i + 1].nome;
-        contadorCop += 2;
+        elementos[i] = elementos[i + 1];
+        contadorCop ++;
     }
     capacidade--;
 }
 
 // Função para encontrar um elemento na lista sequencial com base no RG por meio da busca sequencial
-void ListaSequencial::EncontrarElementoSequencial(string& RG)
+void ListaSequencial::EncontrarElementoSequencial(int& RG)
 {
     contadorIf = 0;
     contadorCop = 0;
@@ -174,7 +174,7 @@ void ListaSequencial::EncontrarElementoSequencial(string& RG)
 }
 
 // Função para encontrar um elemento na lista sequencial com base no RG por meio da busca binaria
-void ListaSequencial::EncontrarElementoBinaria(string& RG)
+void ListaSequencial::EncontrarElementoBinaria(int& RG)
 {
     contadorIf = 0;
     contadorCop = 0;

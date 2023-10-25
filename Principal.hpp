@@ -15,10 +15,11 @@ private:
     static ListaSequencial listaSeq;
     static ListaEncadeada listaEnc;
     static clock_t inicioSeq, fimSeq, inicioEnc, fimEnc;
-    static string nomeEscolhido, RGEscolhido;
+    static string nomeEscolhido;
+    int RGEscolhido, RG;
     static int opcao, opcao2;
     int N, op, contadorTXT;
-    string nome, linha, RG, nomeArquivoSec, nomeArquivoEnc, nomeArq;
+    string nome, linha, nomeArquivoSec, nomeArquivoEnc, nomeArq;
     string diretorio;
     ifstream arquivo;
 

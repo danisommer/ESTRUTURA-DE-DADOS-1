@@ -11,7 +11,7 @@ private:
     struct Dado
     {
         string nome;
-        string rg;
+        int rg;
     };
 
     Dado* elementos;
@@ -29,10 +29,10 @@ public:
     bool getOrdenada() const;
     Dado getElemento(int n);
     void PreencherLista(ifstream& arquivo) override;
-    void Insert(int pos, const string& nome, const string& rg) override;
+    void Insert(int pos, const string& nome, const int& rg) override;
     void Remove(int pos) override;
-    void EncontrarElementoSequencial(string& RG) override;
-    void EncontrarElementoBinaria(string& RG);
+    void EncontrarElementoSequencial(int& RG) override;
+    void EncontrarElementoBinaria(int& RG);
     void OrdenarListaPorRG(int op);
     void SelectionSort();
     void InsertionSort();

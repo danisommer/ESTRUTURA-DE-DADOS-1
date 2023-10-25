@@ -12,7 +12,7 @@ private:
     struct Dado
     {
         string nome;
-        string rg;
+        int rg;
     };
 
     struct Node
@@ -34,13 +34,13 @@ public:
     int getIFs() const;
     int getCopias() const;
     void PreencherLista(ifstream& arquivo) override;
-    void InsertFront(const string& nome, const string& rg);
-    void InsertBack(const string& nome, const string& rg);
-    void Insert(int pos, const string& nome, const string& rg) override;
+    void InsertFront(const string& nome, const int& rg);
+    void InsertBack(const string& nome, const int& rg);
+    void Insert(int pos, const string& nome, const int& rg) override;
     void RemoveFront();
     void RemoveBack();
     void Remove(int pos) override;
-    void EncontrarElementoSequencial(string& RG) override;
+    void EncontrarElementoSequencial(int& RG) override;
     void ImprimirLista() override;
     void ExportarLista(const string& diretorio, const string& nomeArquivo) override;
     void LimparLista() override;

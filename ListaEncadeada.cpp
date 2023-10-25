@@ -62,12 +62,14 @@ void ListaEncadeada::PreencherLista(ifstream& arquivo)
         getline(ss, nome, ',');
         getline(ss, rgStr);
 
-        InsertBack(nome, rgStr);
+        int rg = std::stoi(rgStr);
+
+        InsertBack(nome, rg);
     }
 }
 
 // Função para inserir elemento na frente da lista encadeada
-void ListaEncadeada::InsertFront(const string& nome, const string& rg)
+void ListaEncadeada::InsertFront(const string& nome, const int& rg)
 {
     contadorIf = 0;
     contadorCop = 0;
@@ -99,7 +101,7 @@ void ListaEncadeada::InsertFront(const string& nome, const string& rg)
 }
 
 // Função para inserir elemento no fim da lista encadeada
-void ListaEncadeada::InsertBack(const string& nome, const string& rg)
+void ListaEncadeada::InsertBack(const string& nome, const int& rg)
 {
     contadorIf = 0;
     contadorCop = 0;
@@ -131,7 +133,7 @@ void ListaEncadeada::InsertBack(const string& nome, const string& rg)
 }
 
 // Função para inserir elemento em uma posicao N da lista encadeada
-void ListaEncadeada::Insert(int pos, const string& nome, const string& rg)
+void ListaEncadeada::Insert(int pos, const string& nome, const int& rg)
 {
     if (pos < 0 || pos > capacidade)
     {
@@ -291,7 +293,7 @@ void ListaEncadeada::Remove(int pos)
 }
 
 // Função para encontrar um elemento na lista sequencial com base no RG por meio da busca sequencial
-void ListaEncadeada::EncontrarElementoSequencial(string& RG)
+void ListaEncadeada::EncontrarElementoSequencial(int& RG)
 {
     contadorIf = 0;
     contadorCop = 0;

@@ -23,11 +23,10 @@ clock_t Principal::fimSeq = 0;
 clock_t Principal::inicioEnc = 0;
 clock_t Principal::fimEnc = 0;
 string Principal::nomeEscolhido;
-string Principal::RGEscolhido;
 int Principal::opcao = -1;
 int Principal::opcao2 = -1;
 
-Principal::Principal() : N(), op(), contadorTXT(0)
+Principal::Principal() : N(), op(), contadorTXT(0), RGEscolhido(), RG()
 {
     diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/";
 }
