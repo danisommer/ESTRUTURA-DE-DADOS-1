@@ -28,7 +28,7 @@ int Principal::opcao2 = -1;
 
 Principal::Principal() : N(), op(), contadorTXT(0), RGEscolhido(), RG()
 {
-    diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/";
+    diretorio = "C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/TRABALHO 1-2/ARQUIVOS_TXT/";
 }
 
 Principal::~Principal() = default;
@@ -111,7 +111,7 @@ void Principal::Executar()
 {
 
     WIN32_FIND_DATA findFileData;
-    HANDLE hFind = FindFirstFile("C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/ARQUIVOS_TXT/*.*", &findFileData);
+    HANDLE hFind = FindFirstFile("C:/Users/fabri/Downloads/Programacao/ESTRUTURA-DE-DADOS/TRABALHO 1-2/ARQUIVOS_TXT/*.*", &findFileData);
 
     if (hFind == INVALID_HANDLE_VALUE)
     {
